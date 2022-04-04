@@ -40,9 +40,6 @@
                             <a class="nav-link smoth-scroll" asp-controller="Home" asp-action="Index" >Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link smoth-scroll" asp-controller="Home" asp-action="Search">Search</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link smoth-scroll" asp-controller="Home" asp-action="Crashes">View All Data</a>
                         </li>
                     </ul>
@@ -62,15 +59,15 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-8 col-md-8">
                     <div class="footer-widget footer-link">
-                        <h4>We concern about you<br> and your safety on the road.</h4>
+                        <h4>We are concerned about<br>your safety on the road.</h4>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-4 col-md-4">
                     <div class="footer-widget footer-link">
                         <h4>About</h4>
                         <ul>
-                            <li><a href="#">Collisions</a></li>
-                            <li><a href="#">Search</a></li>
+                            <li><a asp-controller="Home" asp-action="Crashes">Collisions</a></li>
+                            <li><a>Data Analysis</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,7 +75,7 @@
                     <div class="footer-widget footer-text">
                         <h4>Our location</h4>
                         <p><span>Phone:</span> 801-111-1111</p>
-                        <p><span>Location:</span> 111 State St, Provo, UT, 84602</p>
+                        <p><span>Location:</span> 111 Yeet St, Provo, UT, 84602</p>
                     </div>
                 </div>
             </div>
