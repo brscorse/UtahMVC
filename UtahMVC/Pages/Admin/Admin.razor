@@ -1,0 +1,77 @@
+﻿@page "/admin/admin"
+@page "/admin"
+@inherits OwningComponentBase<IUtahMVCRepository>
+
+<h3>Admin</h3>
+
+
+<table class="table table-sm table-striped table-bordered">
+
+    <thead>
+        <tr>
+            <th>Date & Time</th>
+            <th>Route</th>
+            <th>Milepoint</th>
+            <th>Street Name</th>
+            <th>City</th>
+            <th>County</th>
+            <th>Severity</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Crash c in CrashData)
+        {
+            <tr>
+
+                <td>Date/Time: @c.CRASH_DATETIME</td>
+                <td>Route: @c.ROUTE</td>
+                <td>Milepoint: @c.MILEPOINT</td>
+                <td>Road: @c.MAIN_ROAD_NAME</td>
+                <td>City: @c.CITY</td>
+                <td>County: @c.COUNTY_NAME</td>
+                <td>Crash Severity: @c.CRASH_SEVERITY_ID</td>
+
+                @*<td>
+                    <NavLink class="btn btn-outline-secondary btn-sm" href="@GetDetailsUrl(c.CRASH_ID)">Details</NavLink>
+                </td>
+
+                <td>
+                    <NavLink class="btn btn-outline-warning btn-sm" href="@GetEditUrl(c.CRASH_ID)">Edit</NavLink>
+                </td>
+
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" @onclick="@(x => RemoveBook(c))">Delete</button>
+                </td>*@
+            </tr>
+        }
+
+        </tbody>
+
+</table>
+
+@code {
+
+    public IUtahMVCRepository repo => Service;
+    public IEnumerable<Crash> CrashData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        CrashData = await repo.Crash.Take(50).ToListAsync();
+    }
+
+    //public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
+    //public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
+
+    //public async Task RemoveBook(Crash c)
+    //{
+    //    repo.DeleteCrash(c);
+    //    await UpdateData();
+    //}
+
+}

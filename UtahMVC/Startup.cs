@@ -30,6 +30,8 @@ namespace UtahMVC
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
+            services.AddRazorPages();
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,8 +76,11 @@ namespace UtahMVC
                     new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
-                //endpoints.MapRazorPages();
+                
             });
         }
     }

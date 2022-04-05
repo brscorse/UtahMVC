@@ -3,6 +3,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 
 
@@ -17,6 +18,10 @@ namespace UtahMVC.Models
         }
 
         public DbSet<Crash> UtahCrashData { get; set; }
+
+
+
+
 
     }
 }
