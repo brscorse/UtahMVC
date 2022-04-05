@@ -33,6 +33,11 @@ namespace UtahMVC.Controllers
             return View();
         }
 
+        public IActionResult Analytics()
+        {
+            return View();
+        }
+
 
         public IActionResult Crashes(string countyNames, int pageNum = 1)
         {
