@@ -27,6 +27,7 @@ namespace UtahMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             //var builder = new MySqlConnectionStringBuilder(Configuration.GetConnectionString("CrashesDbConnection"))
             //{
@@ -60,6 +61,7 @@ namespace UtahMVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -72,6 +74,7 @@ namespace UtahMVC
                     "Paging",
                     "{pageNum}",
                     new { Controller = "Home", action = "Crashes", pageNum = 1 });
+                endpoints.MapRazorPages();
             });
         }
     }
