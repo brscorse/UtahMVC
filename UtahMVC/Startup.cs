@@ -75,7 +75,6 @@ namespace UtahMVC
 
                 endpoints.MapDefaultControllerRoute();
 
-                //endpoints.MapRazorPages();
             });
         }
     }

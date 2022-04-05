@@ -3,11 +3,9 @@
 <div class="d-grid p-25">
     <a asp-controller="Home" asp-action="Crashes" asp-route-cityNames="" asp-route-PageNum="1" class="btn btn-outline-secondary">All Crashes</a>
 
-    <select>
-        @foreach (string f in Model)
-        {
-            <option asp-controller="Home" asp-action="Crashes" asp-route-cityNames="@f"
-               class="btn @(ViewBag.SelectedType == f ? "btn-primary" : "btn-outline-secondary")">@f</option>
-        }
-    </select>
+    @foreach (string f in Model)
+    {
+        <a asp-controller="Home" asp-action="Crashes" asp-route-cityNames="@f"
+            class="btn @(ViewBag.SelectedType == f ? "btn-primary" : "btn-outline-secondary")">@f</a>
+    }
 </div>

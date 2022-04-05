@@ -571,9 +571,10 @@ h5.subtitle {
 }
 
 .banner-2 {
-  background: url("../images/banner/slider-3.jpg");
-  background-size: cover;
-  position: relative;
+    background: url("../images/banner/crashbanner.jpeg");
+    background-size: auto;
+    position: relative;
+    background-size: 100%;
 }
 
 .banner-3 {
