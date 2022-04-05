@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using UtahMVC.Models.ViewModels;
 
 namespace UtahMVC.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
 
@@ -26,22 +28,26 @@ namespace UtahMVC.Controllers
         }
 
 
-        public IActionResult Crashes(int pageNum = 1)
+        public IActionResult Crashes(string cityNames, int pageNum = 1)
         {
-            int pageSize = 10;
 
-            // calculate how many books to show on each page and have page numbers to correspond 
+            int pageSize = 25;
+
+            // calculate how many rows to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
             {
                 Crashes = context.UtahCrashData
-                .Where(c => c.CITY == "Draper")
+                .Where(c => c.CITY == cityNames || cityNames == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = context.UtahCrashData.Count(),
+                    TotalNumCrashes =
+                        (cityNames == null
+                            ? context.UtahCrashData.Count()
+                            : context.UtahCrashData.Where(x => x.CITY == cityNames).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }

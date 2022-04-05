@@ -30,10 +30,6 @@ namespace UtahMVC
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
-
-            //var builder = new MySqlConnectionStringBuilder(Configuration.GetConnectionString("CrashesDbConnection"));
-
-            //services.AddDbContext<CrashesDbContext>(options => options.UseMySql(builder.ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

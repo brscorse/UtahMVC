@@ -2,13 +2,17 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Data";
 }
 
 @model CrashesViewModel
-
 <<div class="text-center">
-    <h5 class="display-4">Crashes</h5>
+    <h5 class="display-3">Crashes</h5>
     <br />
+</div>
+
+<div id="cities" class="col-1">
+    <vc:cities></vc:cities>
 </div>
 
 <!-- crash table -->

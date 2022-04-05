@@ -13,13 +13,12 @@
     </div>
 
     <ul>
-        <li>Date/Time: @Model.CRASH_DATETIME</li>
-        <li>Route: @Model.ROUTE</li>
-        <li>Road: @Model.MAIN_ROAD_NAME</li>
-        <li>City: @Model.CITY</li>
-        <li>County: @Model.COUNTY_NAME</li>
-        <li>Crash Severity: @Model.CRASH_SEVERITY_ID</li>
-        <li asp-controller="Home" asp-action="Details" asp-route-id="@Model.CRASH_ID">Details</li>
+        <li><b>Date/Time: </b> @Model.CRASH_DATETIME</li>
+        <li><b>Route: </b> @Model.ROUTE</li>
+        <li><b>Road/Address: </b> @Model.MAIN_ROAD_NAME</li>
+        <li><b>City: </b> @Model.CITY</li>
+        <li><b>County: </b> @Model.COUNTY_NAME</li>
+        <li><b>Severity: </b> @Model.CRASH_SEVERITY_ID</li>
+        <li><a class="btn btn-primary" asp-controller="Home" asp-action="Details" asp-route-id="@Model.CRASH_ID">Details</a></li>
     </ul>
 </div>
-
