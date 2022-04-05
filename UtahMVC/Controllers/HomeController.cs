@@ -34,7 +34,7 @@ namespace UtahMVC.Controllers
             var x = new CrashesViewModel
             {
                 Crashes = context.Crashes
-                .Where(c => c.CITY == "FAUST")
+                //.Where(c => c.CITY == "FAUST")
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -49,7 +49,7 @@ namespace UtahMVC.Controllers
             return View(x);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(string id)
         {
             var crash = context.Crashes.Single(x => x.CRASH_ID == id);
 
