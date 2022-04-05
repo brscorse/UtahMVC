@@ -59,9 +59,23 @@ namespace UtahMVC
                    pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
+                    "Cities",
+                    "{cityNames}/Page{pageNum}",
+                    new { Controller = "Home", action = "Crashes" });
+
+                endpoints.MapControllerRoute(
                     "Paging",
                     "{pageNum}",
                     new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    "type",
+                    "{cityNames}",
+                    new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+                endpoints.MapDefaultControllerRoute();
+
+                //endpoints.MapRazorPages();
             });
         }
     }

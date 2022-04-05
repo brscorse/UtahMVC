@@ -6,22 +6,27 @@
 }
 
 @model CrashesViewModel
-<<div class="text-center">
+
+<div class="text-center">
     <h5 class="display-3">Crashes</h5>
     <br />
 </div>
 
-<div id="cities" class="col-1">
-    <vc:cities></vc:cities>
+<div class="row m-1 p-4">
+    <div class="col-2">
+        <vc:filter></vc:filter>
+    </div>
+
+    <div class="col-10">
+        <!-- crash table -->
+        @foreach (Crash c in Model.Crashes)
+        {
+            <partial name="CrashSummary" model="c" />
+        }
+    </div>
 </div>
 
-<!-- crash table -->
-@foreach (Crash c in Model.Crashes)
-{
-    <partial name="CrashSummary" model="c" />
-}
-
 <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-     page-classes-enabled="true"
-     class="btn-group pull-right m-1"></div>
+        page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+        page-classes-enabled="true"
+        class="btn-group pull-right m-1"></div>
