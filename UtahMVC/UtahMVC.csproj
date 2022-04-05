@@ -5,18 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Infrastructure\" />
+    <None Remove="Models\ViewModels\" />
+    <None Remove="System.Configuration.ConfigurationManager" />
     <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.AspNet.Identity.Core" />
+    <None Remove="Microsoft.AspNet.Identity.EntityFramework" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
-    <None Remove="Views\Shared\Components\" />
-    <None Remove="Views\Shared\Components\Filter\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Shared\Components\" />
-    <Folder Include="Views\Shared\Components\Filter\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />

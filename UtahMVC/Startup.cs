@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +28,10 @@ namespace UtahMVC
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<CrashesDbContext>(options =>
-            {
-                options.UseMySql(Configuration["ConnectionStrings:CrashesDbConnection"]);
-
-            });
+            var builder = new MySqlConnectionStringBuilder(Configuration.GetConnectionString("CrashesDbConnection"));
+            builder.UserID = Configuration["admin"];
+            builder.Password = Configuration["IScore2022!"];
+            services.AddDbContext<CrashesDbContext>(options => options.UseMySql(builder.ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

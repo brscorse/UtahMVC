@@ -1,5 +1,9 @@
 ﻿using System;
+
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+
 
 
 namespace UtahMVC.Models
@@ -12,5 +16,6 @@ namespace UtahMVC.Models
         }
 
         public DbSet<Crash> Crashes { get; set; }
+
     }
 }
