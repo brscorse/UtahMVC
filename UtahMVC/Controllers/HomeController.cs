@@ -28,6 +28,12 @@ namespace UtahMVC.Controllers
         }
 
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+
         public IActionResult Crashes(string cityNames, int pageNum = 1)
         {
 

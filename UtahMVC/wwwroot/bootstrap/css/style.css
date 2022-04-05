@@ -565,9 +565,10 @@ h5.subtitle {
 }
 
 .banner-1 {
-  background: url("../images/banner/bg-2.jpg");
-  background-size: cover;
-  position: relative;
+    background: url("../images/banner/privacy.jpeg");
+    background-size: auto;
+    position: relative;
+    background-size: 100%;
 }
 
 .banner-2 {
