@@ -31,7 +31,9 @@ namespace UtahMVC
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
 
+            services.AddServerSideBlazor();
             services.AddRazorPages();
+            
 
             services.AddDistributedMemoryCache();
             services.AddSession();
@@ -78,7 +80,7 @@ namespace UtahMVC
 
                 endpoints.MapDefaultControllerRoute();
 
-                //endpoints.MapRazorPages();
+                endpoints.MapRazorPages();
             });
         }
     }

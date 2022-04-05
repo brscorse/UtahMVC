@@ -62,7 +62,7 @@
 
     public async Task UpdateData()
     {
-        CrashData = await repo.Crash.Take(50).ToListAsync();
+        CrashData = await repo.Crash.ToListAsync();
     }
 
     //public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";
