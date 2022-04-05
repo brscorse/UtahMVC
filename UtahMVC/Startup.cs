@@ -55,6 +55,26 @@ namespace UtahMVC
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+                app.Use(async (context, next) =>
+                {
+                    context.Response.Headers.Add("X-Xss-Protection", "1");
+                    await next();
+                });
+
+                app.Use(async (ctx, next) =>
+                {
+                    ctx.Response.Headers.Add("Content-Security-Policy",
+                    "default-src 'self'");
+                    await next();
+                });
+
+                app.Use(async (context, next) =>
+                {
+                    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self' cdn.jsdelivr.net;");
+                    await next();
+                });
+            
+
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();

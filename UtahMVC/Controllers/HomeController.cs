@@ -59,5 +59,9 @@ namespace UtahMVC.Controllers
             return View(crash);
         }
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
     }
 }
