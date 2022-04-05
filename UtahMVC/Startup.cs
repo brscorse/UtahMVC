@@ -30,6 +30,11 @@ namespace UtahMVC
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,14 +44,10 @@ namespace UtahMVC
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
+
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
+
 
             app.UseRouting();
 
@@ -54,26 +55,30 @@ namespace UtahMVC
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                   name: "default",
-                   pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
                 endpoints.MapControllerRoute(
-                    "Cities",
-                    "{cityNames}/Page{pageNum}",
-                    new { Controller = "Home", action = "Crashes" });
+                    name: "typePage",
+                    pattern: "{countyNames}/Page{pageNum}",
+                   defaults:  new { Controller = "Home", action = "Crashes" });
 
                 endpoints.MapControllerRoute(
-                    "Paging",
-                    "{pageNum}",
-                    new { Controller = "Home", action = "Crashes", pageNum = 1 });
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
                 endpoints.MapControllerRoute(
-                    "type",
-                    "{cityNames}",
-                    new { Controller = "Home", action = "Crashes", pageNum = 1 });
+                    name: "type",
+                    pattern: "{countyNames}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                //endpoints.MapDefaultControllerRoute();
+
+                //endpoints.MapRazorPages();
 
             });
         }

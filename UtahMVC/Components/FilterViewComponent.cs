@@ -23,7 +23,7 @@ namespace UtahMVC.Component
             var cities = context.UtahCrashData.Select(x => x.CITY).Distinct().OrderBy(x => x);
             var counties = context.UtahCrashData.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x);
 
-            return View(cities);
+            return View(counties);
         }
     }
 }
