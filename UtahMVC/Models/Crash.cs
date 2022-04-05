@@ -7,17 +7,17 @@ namespace UtahMVC.Models
     {
         [Key]
         [Required]
-        public int CRASH_ID { get; set; }
+        public string CRASH_ID { get; set; }
 
-        public DateTime CRASH_DATETIME { get; set; }
+        public string CRASH_DATETIME { get; set; }
 
         public string ROUTE { get; set; }
 
-        public int MILEPOINT { get; set; }
+        public string MILEPOINT { get; set; }
 
-        public float LAT_UTM_Y { get; set; }
+        public string LAT_UTM_Y { get; set; }
 
-        public float LONG_UTM_X { get; set; }
+        public string LONG_UTM_X { get; set; }
 
         public string MAIN_ROAD_NAME { get; set; }
 
@@ -25,7 +25,7 @@ namespace UtahMVC.Models
 
         public string COUNTY_NAME { get; set; }
 
-        public int CRASH_SEVERITY_ID { get; set; }
+        public string CRASH_SEVERITY_ID { get; set; }
 
         public string WORK_ZONE_RELATED { get; set; }
 
