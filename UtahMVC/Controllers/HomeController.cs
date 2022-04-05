@@ -33,14 +33,15 @@ namespace UtahMVC.Controllers
             // calculate how many books to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
             {
-                Crashes = context.Crashes
-                //.Where(c => c.CITY == "FAUST")
+                Crashes = context.UtahCrashData
+                .Where(c => c.CITY == "Draper")
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
+
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = context.Crashes.Count(),
+                    TotalNumCrashes = context.UtahCrashData.Count(),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }
@@ -51,7 +52,7 @@ namespace UtahMVC.Controllers
 
         public IActionResult Details(string id)
         {
-            var crash = context.Crashes.Single(x => x.CRASH_ID == id);
+            var crash = context.UtahCrashData.Single(x => x.CRASH_ID == id);
 
             return View(crash);
         }

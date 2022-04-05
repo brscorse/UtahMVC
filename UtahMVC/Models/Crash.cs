@@ -15,9 +15,9 @@ namespace UtahMVC.Models
 
         public string MILEPOINT { get; set; }
 
-        public float LAT_UTM_Y { get; set; }
+        public string LAT_UTM_Y { get; set; }
 
-        public float LONG_UTM_X { get; set; }
+        public string LONG_UTM_X { get; set; }
 
         public string MAIN_ROAD_NAME { get; set; }
 
