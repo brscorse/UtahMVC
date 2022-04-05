@@ -28,7 +28,18 @@ namespace UtahMVC.Controllers
         }
 
 
-        public IActionResult Crashes(string cityNames, int pageNum = 1)
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Analytics()
+        {
+            return View();
+        }
+
+
+        public IActionResult Crashes(string countyNames, int pageNum = 1)
         {
 
             int pageSize = 25;
@@ -37,7 +48,7 @@ namespace UtahMVC.Controllers
             var x = new CrashesViewModel
             {
                 Crashes = context.UtahCrashData
-                .Where(c => c.CITY == cityNames || cityNames == null)
+                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -45,9 +56,9 @@ namespace UtahMVC.Controllers
                 PageInfo = new PageInfo
                 {
                     TotalNumCrashes =
-                        (cityNames == null
+                        (countyNames == null
                             ? context.UtahCrashData.Count()
-                            : context.UtahCrashData.Where(x => x.CITY == cityNames).Count()),
+                            : context.UtahCrashData.Where(x => x.COUNTY_NAME == countyNames).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }

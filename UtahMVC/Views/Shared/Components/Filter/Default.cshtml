@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<string>
 <!-- this is for the filter section on the left hand side of the home page-->
 <div class="d-grid p-25">
-    <a asp-controller="Home" asp-action="Crashes" asp-route-cityNames="" asp-route-PageNum="1" class="btn btn-outline-secondary">All Crashes</a>
+    <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames="" asp-route-PageNum="1" class="btn btn-outline-secondary">All Crashes</a><br />
 
-    <select>
+        Filter by County:<br />
         @foreach (string f in Model)
         {
-            <option asp-controller="Home" asp-action="Crashes" asp-route-cityNames="@f"
-               class="btn @(ViewBag.SelectedType == f ? "btn-primary" : "btn-outline-secondary")">@f</option>
+            <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames="@f"
+               class="btn @(ViewBag.SelectedType == f ? "btn-primary" : "btn-outline-secondary")">@f</a>
         }
-    </select>
 </div>
