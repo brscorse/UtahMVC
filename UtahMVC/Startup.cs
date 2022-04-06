@@ -36,6 +36,7 @@ namespace UtahMVC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
@@ -60,6 +61,8 @@ namespace UtahMVC
             app.UseCookiePolicy();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -87,6 +90,7 @@ namespace UtahMVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
