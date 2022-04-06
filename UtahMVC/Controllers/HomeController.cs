@@ -85,7 +85,7 @@ namespace UtahMVC.Controllers
             var x = new CrashesViewModel
             {
                 UtahCrashData = repo.UtahCrashData
-                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
+                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null).OrderByDescending(x => x.CRASH_ID)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -120,7 +120,8 @@ namespace UtahMVC.Controllers
             //Add viewbag for county and city
             var crash = repo.UtahCrashData.Single(x => x.CRASH_ID == id);
 
-            return View("AdminForm", crash);
+
+            return View("AdminEdit", crash);
         }
 
         //edit crash post and update
@@ -157,22 +158,22 @@ namespace UtahMVC.Controllers
         {
             //Add viewbag for county and city
             ViewBag.Id = repo.UtahCrashData.Max(x => x.CRASH_ID) + 1;
-            return View("AdminForm", new Crash());
+            return View("AdminAdd", new Crash());
         }
 
         [HttpPost]
-        public IActionResult AdminAdd(Crash c)
+        public IActionResult AdminAdd(Crash crash)
         {
             //add it so that after you create it goes to details of the record you just created
             if (ModelState.IsValid)
             {
-                repo.CreateCrash(c);
+                repo.CreateCrash(crash);
 
-                return RedirectToAction("Admin", c);
+                return View("AdminDetails", crash);
             }
             else
             {
-                return View("Admin", c);
+                return View("AdminAdd", crash);
 
             }
         }
