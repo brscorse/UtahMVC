@@ -585,6 +585,13 @@ h5.subtitle {
     background-size: 100%;
 }
 
+.banner-4 {
+    background: url("../images/banner/analytics-crash.webp");
+    background-size: auto;
+    position: relative;
+    background-size: 100%;
+}
+
 .section-heading h2 {
   margin-bottom: 20px;
   font-weight: 400;
