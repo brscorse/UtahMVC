@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model Crash
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-light p-1">
+        <h3>@Model.CRASH_ID</h3>
+    </div>
+
+    <ul>
+        <li><b>Date: </b> @Model.CRASH_DAY / @Model.CRASH_MONTH / @Model.CRASH_YEAR</li>
+        <li><b>Route: </b> @Model.ROUTE</li>
+        <li><b>Road/Address: </b> @Model.MAIN_ROAD_NAME</li>
+        <li><b>City: </b> @Model.CITY</li>
+        <li><b>County: </b> @Model.COUNTY_NAME</li>
+        <li><b>Severity: </b> @Model.CRASH_SEVERITY_ID</li>
+        <li><a class="btn btn-primary" asp-controller="Home" asp-action="AdminDetails" asp-route-id="@Model.CRASH_ID">Details</a></li>
+    </ul>
+</div>

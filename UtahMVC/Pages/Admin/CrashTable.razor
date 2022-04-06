@@ -1,0 +1,36 @@
+﻿<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th colspan="5" class="text-center">@TableTitle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Crash c in UtahCrashData)
+        {
+        <tr>
+            <td>Date: @c.CRASH_DAY / @c.CRASH_MONTH / @c.CRASH_YEAR</td>
+            <td>Route: @c.ROUTE</td>
+            <td>Milepoint: @c.MILEPOINT</td>
+            <td>Road: @c.MAIN_ROAD_NAME</td>
+            <td>City: @c.CITY</td>
+            <td>County: @c.COUNTY_NAME</td>
+            <td>Crash Severity: @c.CRASH_SEVERITY_ID</td>
+        </tr>
+        }
+    </tbody>
+
+    </table>
+
+    @code {
+
+        [Parameter]
+        public string TableTitle { get; set; }
+
+        [Parameter]
+        public IEnumerable<Crash> UtahCrashData { get; set; }
+
+        [Parameter]
+        public EventCallback<int> CrashSelected { get; set; }
+
+    }

@@ -14,12 +14,13 @@ namespace UtahMVC.Models
             context = temp;
         }
 
+
         public IQueryable<Crash> UtahCrashData => context.UtahCrashData;
 
-        
-
+       
         public void SaveCrash(Crash c)
         {
+            context.Update(c);
             context.SaveChanges();
         }
 

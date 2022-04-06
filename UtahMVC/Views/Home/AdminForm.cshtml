@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Form";
+}
+
+@model Crash
+
+
+<h1>Crash @Model.CRASH_ID</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="MAIN_ROAD_NAME">Road/Address: </label>
+    <input asp-for="MAIN_ROAD_NAME" /><br /><br />
+
+    <label asp-for="CITY">City: </label>
+    <input asp-for="CITY" /><br /><br />
+
+    <label asp-for="COUNTY_NAME">County: </label>
+    <input asp-for="COUNTY_NAME" /><br /><br />
+
+    <label asp-for="CRASH_HOUR">Crash Hour: </label>
+    <input asp-for="CRASH_HOUR" /><br /><br />
+
+    <label asp-for="CRASH_DAY">Crash Day: </label>
+    <input asp-for="CRASH_DAY" /><br /><br />
+
+    <label asp-for="CRASH_MONTH">Crash Month: </label>
+    <input asp-for="CRASH_MONTH" /><br /><br />
+
+    <label asp-for="CRASH_YEAR">Crash Year: </label>
+    <input asp-for="CRASH_YEAR" /><br /><br />
+
+    <label asp-for="CRASH_SEVERITY_ID">Severity: </label>
+    <input asp-for="CRASH_SEVERITY_ID" /><br /><br />
+
+    <label asp-for="ROUTE">Route: </label>
+    <input asp-for="ROUTE" /><br /><br />
+
+    <label asp-for="MILEPOINT">Milepoint: </label>
+    <input asp-for="MILEPOINT" /><br /><br />
+
+    <label asp-for="LAT_UTM_Y">Latitude: </label>
+    <input asp-for="LAT_UTM_Y" /><br /><br />
+
+    <label asp-for="LONG_UTM_X">Longitude: </label>
+    <input asp-for="LONG_UTM_X" /><br /><br />
+
+    @*<label asp-for="WORK_ZONE_RELATED">Work Zone Related: </label>
+        <input type="radio" asp-for="WORK_ZONE_RELATED" /><br /><br />*@
+
+
+
+    <input type="hidden" asp-for="CRASH_ID" />
+
+    <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+</form>
