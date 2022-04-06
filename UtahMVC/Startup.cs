@@ -73,9 +73,9 @@ namespace UtahMVC
 
 
                 endpoints.MapControllerRoute(
-                    name: "typePage",
+                    name: "countyPage",
                     pattern: "{countyNames}/Page{pageNum}",
-                   defaults:  new { Controller = "Home", action = "Crashes" });
+                    defaults:  new { Controller = "Home", action = "Crashes" });
 
                 endpoints.MapControllerRoute(
                     name: "Paging",
@@ -83,13 +83,28 @@ namespace UtahMVC
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
                 endpoints.MapControllerRoute(
-                    name: "type",
+                    name: "county",
                     pattern: "{countyNames}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "countyPage",
+                    pattern: "Admin/Admin/{countyNames}/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin" });
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Admin/Admin/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: "county",
+                    pattern: "Admin/Admin/{countyNames}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
