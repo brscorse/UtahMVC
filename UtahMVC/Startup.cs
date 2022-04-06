@@ -89,6 +89,21 @@ namespace UtahMVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                endpoints.MapControllerRoute(
+                    name: "countyPage",
+                    pattern: "Admin/Admin/{countyNames}/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin" });
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Admin/Admin/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: "county",
+                    pattern: "Admin/Admin/{countyNames}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });

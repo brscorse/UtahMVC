@@ -15,11 +15,13 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Components\" />
     <None Remove="Views\Admin\" />
+    <None Remove="Views\Shared\Components\AdminFilter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Components\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Shared\Components\AdminFilter\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.23" />
