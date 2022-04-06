@@ -6,7 +6,7 @@
 
 
 <table class="table table-sm table-striped table-bordered">
-
+    
     <thead>
         <tr>
             <th>Date & Time</th>
@@ -62,7 +62,7 @@
 
     public async Task UpdateData()
     {
-        CrashData = await repo.Crash.ToListAsync();
+        CrashData = await repo.Crash.Take(50).ToListAsync();
     }
 
     //public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";

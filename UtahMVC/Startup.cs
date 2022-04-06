@@ -81,6 +81,8 @@ namespace UtahMVC
                 endpoints.MapDefaultControllerRoute();
 
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
         }
     }
