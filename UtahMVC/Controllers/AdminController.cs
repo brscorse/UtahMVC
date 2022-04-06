@@ -12,7 +12,7 @@ using UtahMVC.Models.ViewModels;
 
 namespace UtahMVC.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         private IUtahMVCRepository repo { get; set; }
