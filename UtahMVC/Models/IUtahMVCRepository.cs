@@ -7,7 +7,7 @@ namespace UtahMVC.Models
 {
     public interface IUtahMVCRepository
     {
-        IQueryable<Crash> Crash{ get;}
+        IQueryable<Crash> UtahCrashData { get;}
 
         public void SaveCrash(Crash c);
         public void CreateCrash(Crash c);

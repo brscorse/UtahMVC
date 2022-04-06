@@ -9,8 +9,6 @@ namespace UtahMVC.Models
         [Required]
         public string CRASH_ID { get; set; }
 
-        public DateTime CRASH_DATETIME { get; set; }
-
         public string ROUTE { get; set; }
 
         public string MILEPOINT { get; set; }
@@ -64,6 +62,15 @@ namespace UtahMVC.Models
         public bool DROWSY_DRIVING { get; set; }
 
         public bool ROADWAY_DEPARTURE { get; set; }
+
+        public string CRASH_YEAR { get; set; }
+
+        public string CRASH_MONTH { get; set; }
+
+        public string CRASH_DAY { get; set; }
+
+        public string CRASH_HOUR { get; set; }
+
 
     }
 }

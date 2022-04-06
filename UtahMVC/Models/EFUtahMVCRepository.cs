@@ -14,7 +14,7 @@ namespace UtahMVC.Models
             context = temp;
         }
 
-        public IQueryable<Crash> Crash => context.UtahCrashData;
+        public IQueryable<Crash> UtahCrashData => context.UtahCrashData;
 
         
 

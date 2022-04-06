@@ -32,7 +32,7 @@
 
     <div class="col-10">
         <!-- crash table -->
-        @foreach (Crash c in Model.Crashes)
+        @foreach (Crash c in Model.UtahCrashData)
         {
             <partial name="CrashSummary" model="c" />
         }

@@ -24,7 +24,7 @@
         {
             <tr>
 
-                <td>Date/Time: @c.CRASH_DATETIME</td>
+                <td>Date: @c.CRASH_DAY / @c.CRASH_MONTH / @c.CRASH_YEAR</td>
                 <td>Route: @c.ROUTE</td>
                 <td>Milepoint: @c.MILEPOINT</td>
                 <td>Road: @c.MAIN_ROAD_NAME</td>
@@ -65,7 +65,7 @@
 
     public async Task UpdateData()
     {
-        CrashData = await repo.Crash.Take(50).ToListAsync();
+        CrashData = await repo.UtahCrashData.Take(50).ToListAsync();
     }
 
     //public string GetDetailsUrl(long id) => $"/admin/books/details/{id}";

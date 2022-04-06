@@ -26,7 +26,7 @@ namespace UtahMVC.Controllers
 
         public IActionResult Details(string id)
         {
-            var crash = repo.Crash.Single(x => x.CRASH_ID == id);
+            var crash = repo.UtahCrashData.Single(x => x.CRASH_ID == id);
 
             return View(crash);
         }

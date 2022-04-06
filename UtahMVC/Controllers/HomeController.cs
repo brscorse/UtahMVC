@@ -47,7 +47,7 @@ namespace UtahMVC.Controllers
             // calculate how many rows to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
             {
-                Crashes = context.UtahCrashData
+                UtahCrashData = context.UtahCrashData
                 .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),

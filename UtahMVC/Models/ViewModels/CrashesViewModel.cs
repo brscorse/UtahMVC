@@ -5,7 +5,7 @@ namespace UtahMVC.Models.ViewModels
 {
     public class CrashesViewModel
     {
-        public IQueryable<Crash> Crashes { get; set; }
+        public IQueryable<Crash> UtahCrashData { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }

@@ -31,9 +31,12 @@ namespace UtahMVC
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
 
-            services.AddServerSideBlazor();
+            services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
+
             services.AddRazorPages();
-            
+
+            services.AddServerSideBlazor();
+
 
             services.AddDistributedMemoryCache();
             services.AddSession();
