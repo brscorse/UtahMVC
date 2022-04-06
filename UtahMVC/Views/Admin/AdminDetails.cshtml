@@ -21,8 +21,8 @@
         <li>City: @Model.CITY</li>
         <li>County: @Model.COUNTY_NAME</li>
         <li>Crash Severity: @Model.CRASH_SEVERITY_ID</li>
-        <li><a asp-controller="Home" asp-action="AdminEdit" asp-route-id="@Model.CRASH_ID">Edit</a></li>
-        <li><a asp-controller="Home" asp-action="AdminDelete" asp-route-id="@Model.CRASH_ID">Delete</a></li>
+        <li><a asp-controller="Admin" asp-action="AdminEdit" asp-route-id="@Model.CRASH_ID">Edit</a></li>
+        <li><a asp-controller="Admin" asp-action="AdminDelete" asp-route-id="@Model.CRASH_ID">Delete</a></li>
     </ul>
     <br />
 
@@ -50,5 +50,5 @@
 
     </ul>
 
-    <a type="button"  class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Admin">Go back</a>
+    <a type="button"  class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a>
 </div>

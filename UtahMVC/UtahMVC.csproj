@@ -14,15 +14,21 @@
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Components\" />
+    <None Remove="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Components\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Home\AdminForm.cshtml" />
+    <Content Remove="Views\Home\AdminEdit.cshtml" />
   </ItemGroup>
 </Project>

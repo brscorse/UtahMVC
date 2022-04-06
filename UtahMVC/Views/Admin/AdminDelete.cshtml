@@ -4,8 +4,8 @@
 <h3>Are you sure you want to delete the record for @Model.CRASH_ID?</h3>
 <br />
 
-<form method="post" asp-controller="Home" asp-action="AdminDelete">
+<form method="post" asp-controller="Admin" asp-action="AdminDelete">
     <button class="btn btn-danger" type="submit">Delete</button><br /><br />
-    <a asp-controller="Home" asp-action="Admin" class="btn btn-primary">Cancel</a>
+    <a asp-controller="Admin" asp-action="Admin" class="btn btn-primary">Cancel</a>
     <input type="hidden" asp-for="CRASH_ID" />
 </form>
