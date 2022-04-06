@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,8 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("intexModel.onnx"));
 
         }
 
