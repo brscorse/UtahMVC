@@ -53,7 +53,10 @@
 @code {
 
     public IUtahMVCRepository repo => Service;
+    public IUtahMVCRepository Repository => Service;
+
     public IEnumerable<Crash> CrashData { get; set; }
+
 
     protected async override Task OnInitializedAsync()
     {

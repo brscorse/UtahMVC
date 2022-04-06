@@ -37,6 +37,6 @@ namespace UtahMVC.Models
         }
 
 
-        public IQueryable<Crash> Crashes => throw new NotImplementedException();
+        //public IQueryable<Crash> Crashes => throw new NotImplementedException();
     }
 }

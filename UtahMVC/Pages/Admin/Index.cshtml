@@ -1,6 +1,6 @@
 ﻿@page "/admin"
 
-@*@model UtahMVC.Pages.Admin.IndexModel*@
+@model UtahMVC.Pages.Admin.IndexModel
 
 @{
 
@@ -20,11 +20,9 @@
 @*link to blazor*@
 <body>
      
-    <component type="typeof(UtahMVC.Pages.Admin.Routed)" render-mode="Server" />
+    <component type="typeof(UtahMVC.Pages.Admin.Routed)" render-mode="ServerPrerendered" />
     <script src="/_framework/blazor.server.js"></script>
 
-    @*<component type="typeof(Bookstore.Pages.Admin.Routed)" render-mode="Server" />
-    <script src="/_framework/blazor.server.js"></script>*@
 
 </body>
 
