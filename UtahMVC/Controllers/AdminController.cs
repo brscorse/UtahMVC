@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UtahMVC.Models;
 using UtahMVC.Models.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+
 namespace UtahMVC.Controllers
 {
+    //[Authorize]
     public class AdminController : Controller
     {
         private IUtahMVCRepository repo { get; set; }

@@ -9,10 +9,15 @@
 @if (showBanner)
 {
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        This website uses cookies. <a asp-for"Home" asp-action="Privacy">Learn More</a>. <br />
-        <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            <span aria-hidden="true">Accept</span>
-        </button>
+        <div class="row">
+            <div class="col-8">This website uses cookies. <a asp-controller="Home" asp-action="Privacy">Learn More </a>. <br /></div>
+            <div class="col-4">
+                <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
+                    <span aria-hidden="true">Accept</span>
+                </button>
+            </div>
+        </div>
+
     </div>
     <script>
         (function () {

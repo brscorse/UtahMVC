@@ -36,6 +36,7 @@ namespace UtahMVC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddControllersWithViews();
+            services.AddRazorPages();
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
@@ -61,6 +62,8 @@ namespace UtahMVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -68,9 +71,9 @@ namespace UtahMVC
 
 
                 endpoints.MapControllerRoute(
-                    name: "typePage",
+                    name: "countyPage",
                     pattern: "{countyNames}/Page{pageNum}",
-                   defaults:  new { Controller = "Home", action = "Crashes" });
+                    defaults:  new { Controller = "Home", action = "Crashes" });
 
                 endpoints.MapControllerRoute(
                     name: "Paging",
@@ -78,7 +81,7 @@ namespace UtahMVC
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
                 endpoints.MapControllerRoute(
-                    name: "type",
+                    name: "county",
                     pattern: "{countyNames}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
@@ -87,6 +90,7 @@ namespace UtahMVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
