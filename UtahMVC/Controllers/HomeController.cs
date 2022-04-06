@@ -156,6 +156,7 @@ namespace UtahMVC.Controllers
         public IActionResult AdminAdd()
         {
             //Add viewbag for county and city
+            ViewBag.Id = repo.UtahCrashData.Max(x => x.CRASH_ID) + 1;
             return View("AdminForm", new Crash());
         }
 
