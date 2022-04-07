@@ -40,10 +40,31 @@ namespace UtahMVC.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            // check to see if the number of pages left is less than 10 
-            if (PageBlah.CurrentPage + 10 > PageBlah.TotalPages)
+
+            // check to see if total pages is less than 11 and can fit on the bar
+            if (PageBlah.TotalPages < 12)
             {
-                for (int i = PageBlah.CurrentPage; i <= PageBlah.TotalPages; i++)
+                for (int i = 1; i <= PageBlah.TotalPages; i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
+
+                    tb.InnerHtml.Append(i.ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
+            }
+
+            // check to see if the number of pages left is less than 10 and then show 10 and the end 
+            else if (PageBlah.CurrentPage + 10 > PageBlah.TotalPages)
+            {
+                for (int i = PageBlah.TotalPages - 10; i <= PageBlah.TotalPages; i++)
                 {
                     TagBuilder tb = new TagBuilder("a");
 
