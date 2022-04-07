@@ -5,20 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UtahMVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
-    <!-- bootstrap layout-->
-    <link rel="stylesheet" href="~/bootstrap/plugins/bootstrap/css/bootstrap.css" />
-    <!-- Icofont Css -->
-    <link rel="stylesheet" href="~/bootstrap/plugins/fontawesome/css/all.css">
-    <!-- animate.css -->
-    <link rel="stylesheet" href="~/bootstrap/plugins/animate-css/animate.css">
-    <!-- Icofont -->
-    <link rel="stylesheet" href="~/bootstrap/plugins/icofont/icofont.css">
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="~/bootstrap/css/style.css">
-
-    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .btn-purp, .btn-purp:hover, .btn-purp:active, .btn-purp:visited .bg-purp {
+            background-color: #635CDB !important;
+            color: white
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -30,7 +22,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <a class="navbar-brand m-lg-2" asp-controller="Admin" asp-action="Admin">Utah MVC Administration</a>
+                            <a class="text-white navbar-brand m-lg-2" asp-controller="Admin" asp-action="Admin">Utah MVC Administration</a>
                         </div>
                         <div class="col">
                             <partial name="_LoginPartial" />
@@ -47,16 +39,17 @@
         </navbar>
         <!-- end navigation bar -->
     </header>
-    <div class="row">
-        <div class="col-1 offset-9">
-            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="AdminAdd">Add Record</a>
-        </div>
-        <div class="col-1">
-            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a>
+    <br/>
+
+    <div class="container-fluid">
+        <div class="buttons offset-sm-9">
+            <a type="button" class="btn btn-purp" asp-controller="Home" asp-action="Index">Utah MVC</a>
+            <a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Admin">Admin Home</a>
+            <a type="button" class="btn btn-success" asp-controller="Admin" asp-action="AdminAdd">Add Record</a>
         </div>
     </div>
 
-    @RenderBody()
+        @RenderBody()
 
 
 </body>
