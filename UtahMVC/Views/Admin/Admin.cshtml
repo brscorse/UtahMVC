@@ -6,41 +6,48 @@
 }
 
 @model CrashesViewModel
+    <navbar>
+        <div class="bg-secondary text-white p-2">
 
-<div class="banner-area banner-2">
-    <div class="overlay dark-overlay"></div>
-    <div class="d-table">
-        <div class="d-table-cell">
-            <div class="container">
+            <div class="container-fluid">
+
                 <div class="row">
-                    <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
-                        <div class="banner-content content-padding">
-                            <h5 class="subtitle">Utah MVC</h5>
-                            <h1 class="banner-title">Admin</h1>
-                            <a asp-controller="Admin" asp-action="AdminAdd" class="btn btn-white btn-circled">Add data</a>
-                        </div>
+                    <div class="col">
+                        <span class="navbar-brand m-lg-2">Utah MVC Administration</span>
+                    </div>
+
+                    <div class="col-2 text-right">
+                        <a class="btn btn-sm btn-danger" href="/account/logout">Log Out</a>
+
                     </div>
                 </div>
+
+            </div>
+
+        </div>
+    </navbar>
+
+    @*tabs to switch between books and purchases*@
+
+    <div class="container-fluid">
+        <div class="row m-1 p-4">
+            <div class="col-2">
+                <vc:filter></vc:filter>
+            </div>
+
+            <div class="col-10">
+                <!-- crash table -->
+                @foreach (Crash c in Model.UtahCrashData)
+                {
+                    <partial name="AdminCrashSummary" model="c" />
+                }
             </div>
         </div>
-    </div>
-</div>
 
-<div class="row m-1 p-4">
-    <div class="col-2">
-        <vc:filter></vc:filter>
-    </div>
+        <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
+             page-class-normal="btn-outline-dark" page-class-selected="btn-info"
+             page-classes-enabled="true"
+             class="btn-info btn-group pull-right m-1">
 
-    <div class="col-10">
-        <!-- crash table -->
-        @foreach (Crash c in Model.UtahCrashData)
-        {
-            <partial name="AdminCrashSummary" model="c" />
-        }
+        </div>
     </div>
-</div>
-
-<div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-     page-classes-enabled="true"
-     class="btn-group pull-right m-1"></div>
