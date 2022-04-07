@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UtahMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- bootstrap layout-->
+    <link rel="stylesheet" href="~/bootstrap/plugins/bootstrap/css/bootstrap.css" />
+    <!-- Icofont Css -->
+    <link rel="stylesheet" href="~/bootstrap/plugins/fontawesome/css/all.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="~/bootstrap/plugins/animate-css/animate.css">
+    <!-- Icofont -->
+    <link rel="stylesheet" href="~/bootstrap/plugins/icofont/icofont.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/bootstrap/css/style.css">
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <!-- navigation bar -->
+        <navbar>
+            <div class="bg-secondary text-white p-2">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col">
+                            <span class="navbar-brand m-lg-2">Utah MVC Administration</span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <partial name="_LoginPartial" />
+                <partial name="_CookieConsentPartial" />
+            </div>
+        </navbar>
+        <!-- end navigation bar -->
+    </header>
+    <div class="col-md-2 offset-md-9">
+        <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a>
+    </div>
+
+    @RenderBody()
+
+
+</body>
+</html>
