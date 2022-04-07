@@ -40,20 +40,44 @@ namespace UtahMVC.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i <= PageBlah.TotalPages; i++)
+            // check to see if the number of pages left is less than 10 
+            if (PageBlah.CurrentPage + 9 > PageBlah.TotalPages)
             {
-                TagBuilder tb = new TagBuilder("a");
-
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
-
-                if (PageClassesEnabled)
+                for (int i = PageBlah.CurrentPage; i <= PageBlah.TotalPages; i++)
                 {
-                    tb.AddCssClass(PageClass);
-                    tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
-                }
+                    TagBuilder tb = new TagBuilder("a");
 
-                tb.InnerHtml.Append(i.ToString());
-                final.InnerHtml.AppendHtml(tb);
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
+
+                    tb.InnerHtml.Append(i.ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
+            }
+
+            // add ten pages else statement
+            else
+            {
+                for (int i = PageBlah.CurrentPage; i <= PageBlah.CurrentPage + 9; i++)
+                {
+                    TagBuilder tb = new TagBuilder("a");
+
+                    tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+
+                    if (PageClassesEnabled)
+                    {
+                        tb.AddCssClass(PageClass);
+                        tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                    }
+
+                    tb.InnerHtml.Append(i.ToString());
+                    final.InnerHtml.AppendHtml(tb);
+                }
             }
 
             tho.Content.AppendHtml(final.InnerHtml);

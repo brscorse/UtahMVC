@@ -48,7 +48,7 @@ namespace UtahMVC.Controllers
         public IActionResult Crashes(string countyNames, int pageNum = 1)
         {
 
-            int pageSize = 25;
+            int pageSize = 10;
 
             // calculate how many rows to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
