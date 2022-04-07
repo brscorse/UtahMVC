@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model MLCrash
+
+<form method="post" asp-controller="Inference" asp-action="Score">
+
+    <div><label>City_Salt_Lake_City:</label><input asp-for="City_Salt_Lake_City" value="25" /></div>
+    <div><label>County_Name_Utah:</label><input asp-for="County_Name_Utah" value="32.23" /></div>
+    <div><label>Bicyclist_Involved:</label><input asp-for="Bicyclist_Involved" value="1" /></div>
+    <div><label>Motorcycle_Involved:</label><input asp-for="Motorcycle_Involved" value="0" /></div>
+    <div><label>Unrestrained_True:</label><input asp-for="Unrestrained_True" value="0" /></div>
+    <div><label>DUI_True</label><input asp-for="DUI_True" value="0" /></div>
+    <div><label>Overturn_Rollover_True</label><input asp-for="Overturn_Rollover_True" value="1" /></div>
+    <div><label>Commercial_Vehicle_Involved_True</label><input asp-for="Commercial_Vehicle_Involved_True" value="0" /></div>
+    <div><label>Distracted_Driving</label><input asp-for="Distracted_Driving" value="0" /></div>
+
+    <button type="submit">Calculate</button>
+</form>

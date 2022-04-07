@@ -22,20 +22,16 @@ namespace UtahMVC.Controllers
             repo = temp;
         }
 
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Admin(string countyNames, int pageNum = 1)
         {
 
             int pageSize = 25;
+            ViewBag.counties = countyNames;
 
             // calculate how many rows to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
             {
+               
                 UtahCrashData = repo.UtahCrashData
                 .Where(c => c.COUNTY_NAME == countyNames || countyNames == null).OrderByDescending(x => x.CRASH_ID)
                 .Skip((pageNum - 1) * pageSize)

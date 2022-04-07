@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,8 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("intexModel.onnx"));
 
         }
 
@@ -88,6 +90,21 @@ namespace UtahMVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "countyPage",
+                    pattern: "Admin/Admin/{countyNames}/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin" });
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Admin/Admin/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: "county",
+                    pattern: "Admin/Admin/{countyNames}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
