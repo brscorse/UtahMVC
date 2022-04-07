@@ -45,14 +45,12 @@ namespace UtahMVC.Controllers
 
 
 
-        public IActionResult Crashes(string countyNames, string severity, int pageNum = 1)
+        public IActionResult Crashes(string countyNames, string severity, string year, int pageNum = 1)
         {
 
             int pageSize = 10;
 
-            // calculate how many rows to show on each page and have page numbers to correspond
-
-            // if severity ISN'T passed in
+            // if COUNTY is passed in
             if (severity == null)
             {
                 var x = new CrashesViewModel
@@ -76,7 +74,7 @@ namespace UtahMVC.Controllers
                 return View(x);
             }
 
-            // if a county name isn't passed in
+            // if SEVERITY is passed in
             if (countyNames == null)
             {
                 var x = new CrashesViewModel
@@ -100,7 +98,9 @@ namespace UtahMVC.Controllers
                 return View(x);
             }
 
-            // if both county and severity is passed in
+            // if YEAR is passed in
+
+            // if COUNTY and SEVERITY are passed in
             if (countyNames != null && severity != null)
             {
                 var x = new CrashesViewModel
@@ -123,6 +123,12 @@ namespace UtahMVC.Controllers
                 };
                 return View(x);
             }
+
+            // if COUNTY and YEAR are passed in
+
+            // if YEAR and SEVERITY are passed in
+
+            // if YEAR and SEVERITY and COUNTY are passed in
 
 
 

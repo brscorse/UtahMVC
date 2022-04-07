@@ -49,9 +49,9 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            services.AddSingleton<InferenceSession>(
-               new InferenceSession("../UtahMVC/wwwroot/lib/intexModel.onnx"));
-       
+            //services.AddSingleton<InferenceSession>(
+            //   new InferenceSession("../UtahMVC/wwwroot/lib/intexModel.onnx"));
+
 
         }
 
@@ -78,12 +78,17 @@ namespace UtahMVC
             //endpoints babyyyyyy
             app.UseEndpoints(endpoints =>
             {
-
-
                 // country, severity, page number
                 endpoints.MapControllerRoute(
                     name: "countySeverityPage",
                     pattern: "{countyNames}/{severity}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" });
+
+
+                // severity and page number
+                endpoints.MapControllerRoute(
+                    name: "severity",
+                    pattern: "{severity}/Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes" });
 
 
@@ -93,7 +98,6 @@ namespace UtahMVC
                     pattern: "{countyNames}/Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes" });
 
-
                 // only a page is passed through with all filters as defaults
                 endpoints.MapControllerRoute(
                     name: "Paging",
@@ -101,24 +105,19 @@ namespace UtahMVC
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
 
-                // only a county is passed through, goes to page one of that county 
-                endpoints.MapControllerRoute(
-                    name: "county",
-                    pattern: "{countyNames}",
-                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
-
-                // severity and page number
-                endpoints.MapControllerRoute(
-                    name: "severity",
-                    pattern: "{severity}/Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Crashes" });
-
-
                 //only a severity value is passed through
                 endpoints.MapControllerRoute(
                     name: "severity",
                     pattern: "{severity}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+
+                // only a county is passed through 
+                endpoints.MapControllerRoute(
+                    name: "county",
+                    pattern: "{countyNames}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
 
 
                 //default endpoint
