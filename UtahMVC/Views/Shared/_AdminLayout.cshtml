@@ -30,7 +30,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <span class="navbar-brand m-lg-2">Utah MVC Administration</span>
+                            <a class="navbar-brand m-lg-2" asp-controller="Admin" asp-action="Admin">Utah MVC Administration</a>
                         </div>
                         <div class="col">
                             <partial name="_LoginPartial" />
@@ -39,7 +39,6 @@
                             <partial name="_CookieConsentPartial" />
                         </div>
 
-                        
                     </div>
 
                 </div>
@@ -48,8 +47,13 @@
         </navbar>
         <!-- end navigation bar -->
     </header>
-    <div class="col-md-2 offset-md-9">
-        <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a>
+    <div class="row">
+        <div class="col-1 offset-9">
+            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="AdminAdd">Add Record</a>
+        </div>
+        <div class="col-1">
+            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a>
+        </div>
     </div>
 
     @RenderBody()

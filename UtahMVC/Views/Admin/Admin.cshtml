@@ -8,28 +8,24 @@
 
 @model CrashesViewModel
 
-    @*tabs to switch between books and purchases*@
-<body>
-    <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="AdminAdd">Add Record</a>
-    <div class="container-fluid">
-        <div class="row m-1 p-4">
-            <div class="col-2">
-                <vc:adminfilter></vc:adminfilter>
-            </div>
-
-            <div class="col-10">
-                <!-- crash table -->
-                @foreach (Crash c in Model.UtahCrashData)
-                {
-                    <partial name="AdminCrashSummary" model="c" />
-                }
-            </div>
+<div class="container-fluid">
+    <div class="row m-1 p-4">
+        <div class="col-2">
+            <vc:adminfilter></vc:adminfilter>
         </div>
 
-        <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-             page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-             page-classes-enabled="true"
-             class="btn-group pull-right m-1">
+        <div class="col-10">
+            <!-- crash table -->
+            @foreach (Crash c in Model.UtahCrashData)
+            {
+                <partial name="AdminCrashSummary" model="c" />
+            }
         </div>
     </div>
-</body>
+
+    <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
+            page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+            page-classes-enabled="true"
+            class="btn-group pull-right m-1">
+    </div>
+</div>
