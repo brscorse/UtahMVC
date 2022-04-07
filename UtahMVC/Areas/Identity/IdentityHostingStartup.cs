@@ -16,7 +16,7 @@ namespace UtahMVC.Areas.Identity
         {
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<AuthDbContext>(options =>
-                    options.UseSqlServer(
+                    options.UseMySql(
                         context.Configuration.GetConnectionString("AuthDbContextConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>(options =>

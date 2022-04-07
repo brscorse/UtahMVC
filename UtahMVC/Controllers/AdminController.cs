@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UtahMVC.Data;
 using UtahMVC.Models;
 using UtahMVC.Models.ViewModels;
 
@@ -12,9 +13,19 @@ using UtahMVC.Models.ViewModels;
 
 namespace UtahMVC.Controllers
 {
-    //[Authorize]
+    [Authorize]
+    
     public class AdminController : Controller
     {
+        //private AuthDbContext _Context { get; set; }
+
+
+        ////Constructor
+        //public AdminController(AuthDbContext temp)
+        //{
+        //    _Context = temp;
+        //}
+
         private IUtahMVCRepository repo { get; set; }
 
         public AdminController(IUtahMVCRepository temp)

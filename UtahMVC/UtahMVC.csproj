@@ -41,4 +41,7 @@
     <Content Remove="Views\Home\AdminForm.cshtml" />
     <Content Remove="Views\Home\AdminEdit.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\lib\qrcode\qrcode.min.js" />
+  </ItemGroup>
 </Project>
