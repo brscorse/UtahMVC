@@ -6,4 +6,4 @@
 
 @model UtahMVC.Models.Prediction
 
-<h1>Score: @Model.PredictedValue</h1>
+<h1>Score: @Math.Round((double)Model.PredictedValue)</h1>
