@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using static UtahMVC.Areas.Identity.Pages.Account.LoginModel;
 
 namespace UtahMVC.Data
 {
@@ -14,6 +15,7 @@ namespace UtahMVC.Data
             : base(options)
         {
         }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

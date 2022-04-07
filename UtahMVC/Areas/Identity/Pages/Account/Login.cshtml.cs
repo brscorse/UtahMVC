@@ -42,6 +42,10 @@ namespace UtahMVC.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            //[Key]
+            //[Required]
+            //public int idusers { get; set; }
+
             [Required]
             [EmailAddress]
             public string Email { get; set; }
@@ -103,6 +107,7 @@ namespace UtahMVC.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+
         }
     }
 }
