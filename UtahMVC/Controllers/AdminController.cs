@@ -36,7 +36,7 @@ namespace UtahMVC.Controllers
         public IActionResult Admin(string countyNames, int pageNum = 1)
         {
 
-            int pageSize = 25;
+            int pageSize = 10;
             ViewBag.counties = countyNames;
 
             // calculate how many rows to show on each page and have page numbers to correspond 
