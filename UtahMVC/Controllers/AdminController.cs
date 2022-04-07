@@ -17,14 +17,14 @@ namespace UtahMVC.Controllers
     
     public class AdminController : Controller
     {
-        private AuthDbContext _Context { get; set; }
+        //private AuthDbContext _Context { get; set; }
 
 
-        //Constructor
-        public AdminController(AuthDbContext temp)
-        {
-            _Context = temp;
-        }
+        ////Constructor
+        //public AdminController(AuthDbContext temp)
+        //{
+        //    _Context = temp;
+        //}
 
         private IUtahMVCRepository repo { get; set; }
 

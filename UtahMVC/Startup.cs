@@ -42,11 +42,10 @@ namespace UtahMVC
 
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CrashesDbConnection")));
-            services.AddDbContext<AuthDbContext>(options =>
-            {
-                options.UseMySql(Configuration["ConnectionString:AuthDbConnection"]);
-            });
 
+
+            services.AddDbContext<AuthDbContext>(options =>
+                options.UseMySql(Configuration["ConnectionStrings:AuthDbContextConnection"]));
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
@@ -115,6 +114,8 @@ namespace UtahMVC
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
+
+ 
         }
     }
 }

@@ -40,10 +40,11 @@ namespace UtahMVC.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public class user
+        public class InputModel
         {
-            [Key]
-            public int userid { get; }
+            //[Key]
+            //[Required]
+            //public int idusers { get; set; }
 
             [Required]
             [EmailAddress]
@@ -106,6 +107,7 @@ namespace UtahMVC.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+
         }
     }
 }

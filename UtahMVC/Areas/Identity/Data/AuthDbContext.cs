@@ -16,7 +16,7 @@ namespace UtahMVC.Data
         {
         }
 
-        public DbSet<user> users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
