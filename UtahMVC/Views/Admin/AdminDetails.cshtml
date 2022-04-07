@@ -4,110 +4,131 @@
 
 @model Crash
 
-    <div class="container-fluid">
-        <div class="col-12" style="text-align:center">
-            <br />
-            <h2>Crash - @Model.CRASH_ID</h2>
-            <br />
-            <br />
-        </div>
+<head>
+    <style>
+        .alternate {
+            background: #fcfcfc;
+        }
 
-        <div class="container-fluid">
-            <h4>Main Info:</h4>
-            <br />
-            <div class="row">
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li class="list-group-item">Date: </li>
-                        <li class="list-group-item">Hour: </li>
-                        <li class="list-group-item">Route: </li>
-                        <li class="list-group-item">Milepoint: </li>
-                        <li class="list-group-item">Latitude: </li>
-                        <li class="list-group-item">Longitude: </li>
-                        <li class="list-group-item">Road: </li>
-                        <li class="list-group-item">City: </li>
-                        <li class="list-group-item">County: </li>
-                        <li class="list-group-item">Crash Severity: </li>
-                    </ul>
-                </div>
-                <div class="col-md-5">
-                    <ul class="list-group">
-                        <li class="list-group-item">@Model.CRASH_MONTH / @Model.CRASH_DAY / @Model.CRASH_YEAR</li>
-                        <li class="list-group-item">@Model.CRASH_HOUR</li>
-                        <li class="list-group-item">@Model.ROUTE</li>
-                        <li class="list-group-item">@Model.MILEPOINT</li>
-                        <li class="list-group-item">@Model.LAT_UTM_Y</li>
-                        <li class="list-group-item">@Model.LONG_UTM_X</li>
-                        <li class="list-group-item">@Model.MAIN_ROAD_NAME</li>
-                        <li class="list-group-item">@Model.CITY</li>
-                        <li class="list-group-item">@Model.COUNTY_NAME</li>
-                        <li class="list-group-item">@Model.CRASH_SEVERITY_ID</li>
-                    </ul>
-                </div>
-                <div class="col-md-1">
-                    <a type="button" class="btn btn-warning btn-sm" asp-controller="Admin" asp-action="AdminEdit" asp-route-id="@Model.CRASH_ID">Edit</a>
-                </div>
-                <div class="col-md-1">
-                    <a type="button" class="btn btn-danger btn-sm" asp-controller="Admin" asp-action="AdminDelete" asp-route-id="@Model.CRASH_ID">Delete</a>
-                </div>
+        div-border {
+            margin-bottom: 15px;
+            padding: 4px 12px;
+        }
 
+        .info {
+            background-color: #f0f0f0;
+            border-left: 6px solid #2196F3;
+        }
 
-            </div>
-            <br />
-            <h4>Components:</h4>
-            <br />
-            <div class="row">
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li class="list-group-item">Work Zone: </li>
-                        <li class="list-group-item">Pedastrian: </li>
-                        <li class="list-group-item">Bicyclists: </li>
-                        <li class="list-group-item">Mortorcycle: </li>
-                        <li class="list-group-item">Improper Restraint: </li>
-                        <li class="list-group-item">Unrestrained: </li>
-                        <li class="list-group-item">DUI: </li>
-                        <li class="list-group-item">Intersection: </li>
-                        <li class="list-group-item">Wild Animal: </li>
-                        <li class="list-group-item">Domestic Animal: </li>
-                        <li class="list-group-item">Rollover: </li>
-                        <li class="list-group-item">Commercial Vehicle: </li>
-                        <li class="list-group-item">Teenage Driver: </li>
-                        <li class="list-group-item">Elderly Driver: </li>
-                        <li class="list-group-item">Night time: </li>
-                        <li class="list-group-item">Single Driver: </li>
-                        <li class="list-group-item">Distrated Driver: </li>
-                        <li class="list-group-item">Drowsy Driver: </li>
-                        <li class="list-group-item">Roadway Departure: </li>
-                    </ul>
-                </div>
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li class="list-group-item">@Model.WORK_ZONE_RELATED</li>
-                        <li class="list-group-item">@Model.PEDESTRIAN_INVOLVED</li>
-                        <li class="list-group-item">@Model.BICYCLIST_INVOLVED</li>
-                        <li class="list-group-item">@Model.MOTORCYCLE_INVOLVED</li>
-                        <li class="list-group-item">@Model.IMPROPER_RESTRAINT</li>
-                        <li class="list-group-item">@Model.UNRESTRAINED</li>
-                        <li class="list-group-item">@Model.DUI</li>
-                        <li class="list-group-item">@Model.INTERSECTION_RELATED</li>
-                        <li class="list-group-item">@Model.WILD_ANIMAL_RELATED</li>
-                        <li class="list-group-item">@Model.DOMESTIC_ANIMAL_RELATED</li>
-                        <li class="list-group-item">@Model.OVERTURN_ROLLOVER</li>
-                        <li class="list-group-item">@Model.COMMERCIAL_MOTOR_VEH_INVOLVED</li>
-                        <li class="list-group-item">@Model.TEENAGE_DRIVER_INVOLVED</li>
-                        <li class="list-group-item">@Model.OLDER_DRIVER_INVOLVED</li>
-                        <li class="list-group-item">@Model.NIGHT_DARK_CONDITION</li>
-                        <li class="list-group-item">@Model.SINGLE_VEHICLE</li>
-                        <li class="list-group-item">@Model.DISTRACTED_DRIVING</li>
-                        <li class="list-group-item">@Model.DROWSY_DRIVING</li>
-                        <li class="list-group-item">@Model.ROADWAY_DEPARTURE</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="col-md-2 offset-md-9">
-            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a><br />
-        </div>
+        #rcorners1 {
+            border-radius: 25px;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<div class="container-fluid">
+
+    <div class="col-12" style="text-align:center">
+        <h2>Crash - @Model.CRASH_ID</h2>
     </div>
+
+    <br />
+    <br />
+
+    <div class="container col-12" id="rcorners1">
+        <h4>Main Info:</h4>
+        <div class="row">
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="list-group-item alternate">Date: </li>
+                    <li class="list-group-item">Hour: </li>
+                    <li class="list-group-item alternate">Route: </li>
+                    <li class="list-group-item">Milepoint: </li>
+                    <li class="list-group-item alternate">Latitude: </li>
+                    <li class="list-group-item">Longitude: </li>
+                    <li class="list-group-item alternate">Road: </li>
+                    <li class="list-group-item">City: </li>
+                    <li class="list-group-item alternate">County: </li>
+                    <li class="list-group-item">Crash Severity: </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <ul class="list-group">
+                    <li class="list-group-item alternate">@Model.CRASH_MONTH / @Model.CRASH_DAY / @Model.CRASH_YEAR</li>
+                    <li class="list-group-item">@Model.CRASH_HOUR</li>
+                    <li class="list-group-item alternate">@Model.ROUTE</li>
+                    <li class="list-group-item">@Model.MILEPOINT</li>
+                    <li class="list-group-item alternate">@Model.LAT_UTM_Y</li>
+                    <li class="list-group-item">@Model.LONG_UTM_X</li>
+                    <li class="list-group-item alternate">@Model.MAIN_ROAD_NAME</li>
+                    <li class="list-group-item">@Model.CITY</li>
+                    <li class="list-group-item alternate">@Model.COUNTY_NAME</li>
+                    <li class="list-group-item">@Model.CRASH_SEVERITY_ID</li>
+                </ul>
+            </div>
+            <div class="col-2 button">
+                <a type="button" class="btn btn-warning" asp-controller="Admin" asp-action="AdminEdit" asp-route-id="@Model.CRASH_ID">Edit</a>
+                <a type="button" class="btn btn-danger" asp-controller="Admin" asp-action="AdminDelete" asp-route-id="@Model.CRASH_ID">Delete</a>
+            </div>
+
+
+        </div>
+        <br />
+        <h4>Components:</h4>
+        <div class="row">
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="list-group-item alternate">Work Zone: </li>
+                    <li class="list-group-item">Pedastrian: </li>
+                    <li class="list-group-item alternate">Bicyclists: </li>
+                    <li class="list-group-item">Mortorcycle: </li>
+                    <li class="list-group-item alternate">Improper Restraint: </li>
+                    <li class="list-group-item">Unrestrained: </li>
+                    <li class="list-group-item alternate">DUI: </li>
+                    <li class="list-group-item">Intersection: </li>
+                    <li class="list-group-item alternate">Wild Animal: </li>
+                    <li class="list-group-item">Domestic Animal: </li>
+                    <li class="list-group-item alternate">Rollover: </li>
+                    <li class="list-group-item">Commercial Vehicle: </li>
+                    <li class="list-group-item alternate">Teenage Driver: </li>
+                    <li class="list-group-item">Elderly Driver: </li>
+                    <li class="list-group-item alternate">Night time: </li>
+                    <li class="list-group-item">Single Driver: </li>
+                    <li class="list-group-item alternate">Distrated Driver: </li>
+                    <li class="list-group-item">Drowsy Driver: </li>
+                    <li class="list-group-item alternate">Roadway Departure: </li>
+                </ul>
+            </div>
+            <div class="col-7">
+                <ul class="list-group">
+                    <li class="list-group-item alternate">@Model.WORK_ZONE_RELATED</li>
+                    <li class="list-group-item">@Model.PEDESTRIAN_INVOLVED</li>
+                    <li class="list-group-item alternate">@Model.BICYCLIST_INVOLVED</li>
+                    <li class="list-group-item">@Model.MOTORCYCLE_INVOLVED</li>
+                    <li class="list-group-item alternate">@Model.IMPROPER_RESTRAINT</li>
+                    <li class="list-group-item">@Model.UNRESTRAINED</li>
+                    <li class="list-group-item alternate">@Model.DUI</li>
+                    <li class="list-group-item">@Model.INTERSECTION_RELATED</li>
+                    <li class="list-group-item alternate">@Model.WILD_ANIMAL_RELATED</li>
+                    <li class="list-group-item">@Model.DOMESTIC_ANIMAL_RELATED</li>
+                    <li class="list-group-item alternate">@Model.OVERTURN_ROLLOVER</li>
+                    <li class="list-group-item">@Model.COMMERCIAL_MOTOR_VEH_INVOLVED</li>
+                    <li class="list-group-item alternate">@Model.TEENAGE_DRIVER_INVOLVED</li>
+                    <li class="list-group-item">@Model.OLDER_DRIVER_INVOLVED</li>
+                    <li class="list-group-item alternate">@Model.NIGHT_DARK_CONDITION</li>
+                    <li class="list-group-item">@Model.SINGLE_VEHICLE</li>
+                    <li class="list-group-item alternate">@Model.DISTRACTED_DRIVING</li>
+                    <li class="list-group-item">@Model.DROWSY_DRIVING</li>
+                    <li class="list-group-item alternate">@Model.ROADWAY_DEPARTURE</li>
+                </ul>
+            </div>
+            <div class="col-md-2 offset-md-10 button p-1">
+                <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin">Go back</a><br />
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<br />

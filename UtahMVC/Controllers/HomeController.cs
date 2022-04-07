@@ -16,10 +16,12 @@ namespace UtahMVC.Controllers
     {
 
         private IUtahMVCRepository repo { get; set; }
+        //private Prediction _context { get; set; }
 
         public HomeController(IUtahMVCRepository temp)
         {
             repo = temp;
+            //_context = cont;
         }
 
         public IActionResult Index()
@@ -35,6 +37,8 @@ namespace UtahMVC.Controllers
 
         public IActionResult Analytics()
         {
+            //ViewBag.Score = _context.PredictedValue;
+
             return View();
         }
 

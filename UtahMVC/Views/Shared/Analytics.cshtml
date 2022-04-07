@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Analytics";
+}
+
+@model MLCrash
+
+
+<div class="banner-area banner-4">
+    <div class="overlay dark-overlay"></div>
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                        <div class="banner-content content-padding">
+                            <h5 class="subtitle">Utah MVC</h5>
+                            <h1 class="banner-title">Analytics</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+
+
+<!-- PUT CALCULATOR HERE -->
+
+<style>
+    .color-box {
+        background-color: cornflowerblue;
+        width: 100px;
+        height: 50px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5 text-center form-group">
+            <h1>Future Insight</h1>
+            @if (ViewBag != null) {
+                @ViewBag.Score}
+            <p class="color-box text-center text-align: center">Test </p>
+
+            <form class="form-group" method="post" asp-controller="Inference" asp-action="Score">
+
+                <div class="form-group" style="width: 750px"><label>City_Salt_Lake_City:</label><select asp-for="City_Salt_Lake_City"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>County_Name_Utah:</label><select asp-for="County_Name_Utah"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Bicyclist_Involved:</label><select asp-for="Bicyclist_Involved"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Motorcycle_Involved:</label><select asp-for="Motorcycle_Involved"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Unrestrained_True:</label><select asp-for="Unrestrained_True"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>DUI_True</label><select asp-for="DUI_True"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Overturn_Rollover_True</label><select asp-for="Overturn_Rollover_True"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Commercial_Vehicle_Involved_True</label><select asp-for="Commercial_Vehicle_Involved_True"><option value="1">True</option><option value="0">False</option></select></div>
+                <div class="form-group" style="width: 750px"><label>Distracted_Driving</label><select asp-for="Distracted_Driving"><option value="1">True</option><option value="0">False</option></select></div>
+
+                <button class="btn-primary btn-lg" type="submit">Calculate</button>
+            </form>
+
+        </div>
+        <div class="col-7 text-center">
+            <div>
+                <h1>Current Figures</h1><br />
+                <iframe width="700" height="550" src="https://udps.numetric.net/utah-crash-summary#/df33b49b-1a3d-4d3d-b545-e838a588f3e4" frameborder="0"></iframe>
+
+            </div>
+            <div>
+         
+                <iframe width="700" height="350" src="https://udps.numetric.net/utah-crash-summary#/c55520d6-9164-46b4-9a32-510379d9f1e7" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+</div>
