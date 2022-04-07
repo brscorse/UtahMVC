@@ -40,8 +40,11 @@ namespace UtahMVC.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public class InputModel
+        public class user
         {
+            [Key]
+            public int userid { get; }
+
             [Required]
             [EmailAddress]
             public string Email { get; set; }
