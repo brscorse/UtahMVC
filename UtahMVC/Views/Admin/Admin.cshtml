@@ -14,7 +14,7 @@
             <vc:adminfilter></vc:adminfilter>
         </div>
 
-        <div class="col-10">
+        <div class="col-8">
             <!-- crash table -->
             @foreach (Crash c in Model.UtahCrashData)
             {
@@ -24,23 +24,24 @@
     </div>
 
 
+    <div class="container-fluid">
+        <div class="col-12" style="text-align:center">
+            <div class="row">
+                <div class="col-4 button text-right">
+                    <a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="1">First</a>
+                </div>
 
-    <div class="row">
+                <div page-blah="@Model.PageInfo" page-action="Admin" page-class="btn"
+                     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+                     page-classes-enabled="true"
+                     class="col-4 btn-group">
+                </div>
 
-        <div class="col-1 ml-4">
-            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="1">First</a>
+                <div class="col-4 button text-left">
+                    <a type="button" class="btn btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
+                </div>
+            </div>
         </div>
-
-        <div page-blah="@Model.PageInfo" page-action="Admin" page-class="btn"
-             page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-             page-classes-enabled="true"
-             class="btn-group pull-right m-1">
-        </div>
-
-        <div class="ml-5">
-            <a type="button" class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
-        </div>
+        <br />
     </div>
-
-    <br />
 </div>

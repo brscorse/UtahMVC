@@ -39,20 +39,23 @@
     </div>
 </div>
 
+<div class="container-fluid">
+    <div class="col-12" style="text-align:center">
+        <div class="row">
+            <div class="col button">
+                <a type="button" class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="1">First</a>
+            </div>
+            <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
+                 page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+                 page-classes-enabled="true"
+                 class="col-9 mr-10">
 
-<div class="row">
-    <div class="col-1 ml-4">
-        <a type="button"  class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes"  asp-route-PageNum="1">First</a>
-    </div>
-    <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-         page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-         page-classes-enabled="true"
-         class="col-9 mr-10">
-
-    </div>
-    <div class="ml-5">
-        <a type="button" class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
+            </div>
+            <div class="col button" >
+                <a type="button" class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
+            </div>
+        </div>
     </div>
 </div>
 
-<br />
+    <br />

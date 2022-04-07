@@ -4,322 +4,323 @@
 }
 
 @model Crash
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <style>
-            div-border {
-                margin-bottom: 15px;
-                padding: 4px 12px;
-            }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        div-border {
+            margin-bottom: 15px;
+            padding: 4px 12px;
+        }
 
-            .info {
-                background-color: #e7f3fe;
-                border-left: 6px solid #2196F3;
-            }
+        .info {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
 
-            #rcorners1 {
-                border-radius: 25px;
-                background: #D3D3D3;
-                padding: 20px;
-            }
-        </style>
-    </head>
+        #rcorners1 {
+            border-radius: 25px;
+            background: #D3D3D3;
+            padding: 20px;
+        }
+    </style>
+</head>
+<br />
+<br />
+<br />
+<div class="container">
+    <h2 style="text-align: center;">Crash @Model.CRASH_ID </h2>
+    <form id="rcorners1" class="col-12 row g-4" method="post">
+
+        <br />
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-group col-12">
+            <label class="form-label" asp-for="MAIN_ROAD_NAME">Address: </label>
+            <input class="form-control" placeholder="Address" asp-for="MAIN_ROAD_NAME" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="form-label" asp-for="CITY">City: </label>
+            <input class="form-control" placeholder="City" asp-for="CITY" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <div class="form-label">
+                <label class="form-label" asp-for="COUNTY_NAME">County: </label><br />
+                <select class="col-md-6 form-control" asp-for="COUNTY_NAME">
+                    <option selected>Select a County</option>
+                    <option value="BEAVER">BEAVER</option>
+                    <option value="BOX ELDER">BOX ELDER</option>
+                    <option value="CACHE">CACHE</option>
+                    <option value="CARBON">CARBON</option>
+                    <option value="DAGGETT">DAGGETT</option>
+                    <option value="DAVIS">DAVIS</option>
+                    <option value="DUCHESNE">DUCHESNE</option>
+                    <option value="EMERY">EMERY</option>
+                    <option value="GARFIELD">GARFIELD</option>
+                    <option value="GRAND">GRAND</option>
+                    <option value="IRON">IRON</option>
+                    <option value="JUAB">JUAB</option>
+                    <option value="KANE">KANE</option>
+                    <option value="MILLARD">MILLARD</option>
+                    <option value="MORGAN">MORGAN</option>
+                    <option value="PIUTE">PIUTE</option>
+                    <option value="RICH">RICH</option>
+                    <option value="SALT LAKE">SALT LAKE</option>
+                    <option value="SAN JUAN">SAN JUAN</option>
+                    <option value="SANPETE">SANPETE</option>
+                    <option value="SEVIER">SEVIER</option>
+                    <option value="SUMMIT">SUMMIT</option>
+                    <option value="TOOELE">TOOELE</option>
+                    <option value="UINTAH">UINTAH</option>
+                    <option value="UTAH">UTAH</option>
+                    <option value="WASATCH">WASATCH</option>
+                    <option value="WASHINGTON">WASHINGTON</option>
+                    <option value="WAYNE">WAYNE</option>
+                    <option value="WEBER">WEBER</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="CRASH_HOUR">Time: </label><br />
+            <select class="form-control" asp-for="CRASH_HOUR">
+                <option selected>Select Hour</option>
+                <option value="1">1 A.M.</option>
+                <option value="2">2 A.M.</option>
+                <option value="3">3 A.M.</option>
+                <option value="4">4 A.M.</option>
+                <option value="5">5 A.M.</option>
+                <option value="6">6 A.M.</option>
+                <option value="7">7 A.M.</option>
+                <option value="8">8 A.M.</option>
+                <option value="9">9 A.M.</option>
+                <option value="10">10 A.M.</option>
+                <option value="11">11 A.M.</option>
+                <option value="12">12 P.M.</option>
+                <option value="13">13 P.M.</option>
+                <option value="14">14 P.M.</option>
+                <option value="15">15 P.M.</option>
+                <option value="16">16 P.M.</option>
+                <option value="17">17 P.M.</option>
+                <option value="18">18 P.M.</option>
+                <option value="19">19 P.M.</option>
+                <option value="20">20 P.M.</option>
+                <option value="21">21 P.M.</option>
+                <option value="22">22 P.M.</option>
+                <option value="23">23 P.M.</option>
+                <option value="24">24 P.M.</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="CRASH_DAY">Crash Day: </label><br />
+            <select class="form-control" asp-for="CRASH_DAY">
+                <option selected>Select a Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="CRASH_MONTH">Severity: </label><br />
+            <select class="form-control" asp-for="CRASH_MONTH">
+                <option selected>Select a Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="CRASH_YEAR">Crash Year: </label><br />
+            <input class="form-control" placeholder="Year" asp-for="CRASH_YEAR" />
+        </div>
+
+        <div class="form-group col-md-10">
+            <label class="form-label" asp-for="CRASH_SEVERITY_ID">Severity: </label><br />
+            <select class="form-control" asp-for="CRASH_SEVERITY_ID">
+                <option selected>Select a Severity</option>
+                <option value="1.0">1: No Injury</option>
+                <option value="2.0">2: possible injury</option>
+                <option value="3.0">3: suspected minor injury</option>
+                <option value="4.0">4: suspected serious injury</option>
+                <option value="5.0">5: fatal</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="ROUTE">Route: </label>
+            <input class="form-control" placeholder="Route" asp-for="ROUTE" />
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="MILEPOINT">Milepoint: </label>
+            <input class="form-control" placeholder="Milepoint" asp-for="MILEPOINT" />
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="LAT_UTM_Y">Latitude: </label>
+            <input class="form-control" placeholder="Latitude" asp-for="LAT_UTM_Y" />
+        </div>
+
+        <div class="form-group col-md-3">
+            <label class="form-label" asp-for="LONG_UTM_X">Longitude: </label>
+            <input class="form-control" placeholder="Longitude" asp-for="LONG_UTM_X" />
+        </div>
+
+        <div class="form-group col-md-12">
+            <h3>Select all that apply:</h3>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="WORK_ZONE_RELATED" />
+            <label class="form-check-label" asp-for="WORK_ZONE_RELATED">Work Zone Related?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="PEDESTRIAN_INVOLVED" />
+            <label class="form-check-label" asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="BICYCLIST_INVOLVED" />
+            <label class="form-check-label" asp-for="BICYCLIST_INVOLVED">Bicyclist Involved?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="MOTORCYCLE_INVOLVED" />
+            <label class="form-check-label" asp-for="MOTORCYCLE_INVOLVED">Motorcycle Involved?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="IMPROPER_RESTRAINT" />
+            <label class="form-check-label" asp-for="IMPROPER_RESTRAINT">Improper Restraint?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="UNRESTRAINED" />
+            <label class="form-check-label" asp-for="UNRESTRAINED">Unrestrained?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="DUI" />
+            <label class="form-check-label" asp-for="DUI">DUI?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="INTERSECTION_RELATED" />
+            <label class="form-check-label" asp-for="INTERSECTION_RELATED">Intersection Related?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="WILD_ANIMAL_RELATED" />
+            <label class="form-check-label" asp-for="WILD_ANIMAL_RELATED">Wild Animal Related?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="DOMESTIC_ANIMAL_RELATED" />
+            <label class="form-check-label" asp-for="DOMESTIC_ANIMAL_RELATED">Domestic Animal Related?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="OVERTURN_ROLLOVER" />
+            <label class="form-check-label" asp-for="OVERTURN_ROLLOVER">Overturn/Rollover?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED" />
+            <label class="form-check-label" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">Commercial Vehicle?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="TEENAGE_DRIVER_INVOLVED" />
+            <label class="form-check-label" asp-for="TEENAGE_DRIVER_INVOLVED">Teenage Driver?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="OLDER_DRIVER_INVOLVED" />
+            <label class="form-check-label" asp-for="OLDER_DRIVER_INVOLVED">Older Driver?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="NIGHT_DARK_CONDITION" />
+            <label class="form-check-label" asp-for="NIGHT_DARK_CONDITION">At Night?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="SINGLE_VEHICLE" />
+            <label class="form-check-label" asp-for="SINGLE_VEHICLE">Single Vehicle?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="DISTRACTED_DRIVING" />
+            <label class="form-check-label" asp-for="DISTRACTED_DRIVING">Distracted Driving?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="DROWSY_DRIVING" />
+            <label class="form-check-label" asp-for="DROWSY_DRIVING">Drowsy Driver?</label>
+        </div>
+
+        <div style=" text-align: left;" class="form-check form-switch col-md-4">
+            <input class="form-check-input" type="checkbox" asp-for="ROADWAY_DEPARTURE" />
+            <label class="form-check-label" asp-for="ROADWAY_DEPARTURE">Roadway Departure?</label>
+        </div>
+
+        <input type="hidden" asp-for="CRASH_ID" />
+
+        <br />
+        <br />
+
+        <div style=" text-align: center;" class="form-group col-md-12">
+            <button class="btn btn-md btn-primary" type="submit">Submit</button>
+        </div>
+        <br />
+    </form>
     <br />
-    <br />
-    <br />
-    <div class="container">
-        <h2 style="text-align: center;">Crash @Model.CRASH_ID </h2>
-        <form id="rcorners1" class="col-12 row g-4" method="post">
-
-            <br />
-            <div asp-validation-summary="All"></div>
-
-            <div class="form-group col-12">
-                <label class="form-label" asp-for="MAIN_ROAD_NAME">Address: </label>
-                <input class="form-control" placeholder="Address" asp-for="MAIN_ROAD_NAME" />
-            </div>
-
-            <div class="form-group col-md-6">
-                <label class="form-label" asp-for="CITY">City: </label>
-                <input class="form-control" placeholder="City" asp-for="CITY" />
-            </div>
-
-            <div class="form-group col-md-6">
-                <div class="form-label">
-                    <label class="form-label" asp-for="COUNTY_NAME">County: </label><br />
-                    <select class="col-md-6 form-control" asp-for="COUNTY_NAME">
-                        <option selected>Select a County</option>
-                        <option value="BEAVER">BEAVER</option>
-                        <option value="BOX ELDER">BOX ELDER</option>
-                        <option value="CACHE">CACHE</option>
-                        <option value="CARBON">CARBON</option>
-                        <option value="DAGGETT">DAGGETT</option>
-                        <option value="DAVIS">DAVIS</option>
-                        <option value="DUCHESNE">DUCHESNE</option>
-                        <option value="EMERY">EMERY</option>
-                        <option value="GARFIELD">GARFIELD</option>
-                        <option value="GRAND">GRAND</option>
-                        <option value="IRON">IRON</option>
-                        <option value="JUAB">JUAB</option>
-                        <option value="KANE">KANE</option>
-                        <option value="MILLARD">MILLARD</option>
-                        <option value="MORGAN">MORGAN</option>
-                        <option value="PIUTE">PIUTE</option>
-                        <option value="RICH">RICH</option>
-                        <option value="SALT LAKE">SALT LAKE</option>
-                        <option value="SAN JUAN">SAN JUAN</option>
-                        <option value="SANPETE">SANPETE</option>
-                        <option value="SEVIER">SEVIER</option>
-                        <option value="SUMMIT">SUMMIT</option>
-                        <option value="TOOELE">TOOELE</option>
-                        <option value="UINTAH">UINTAH</option>
-                        <option value="UTAH">UTAH</option>
-                        <option value="WASATCH">WASATCH</option>
-                        <option value="WASHINGTON">WASHINGTON</option>
-                        <option value="WAYNE">WAYNE</option>
-                        <option value="WEBER">WEBER</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="CRASH_HOUR">Time: </label><br />
-                <select class="form-control" asp-for="CRASH_HOUR">
-                    <option selected>Select Hour</option>
-                    <option value="1">1 A.M.</option>
-                    <option value="2">2 A.M.</option>
-                    <option value="3">3 A.M.</option>
-                    <option value="4">4 A.M.</option>
-                    <option value="5">5 A.M.</option>
-                    <option value="6">6 A.M.</option>
-                    <option value="7">7 A.M.</option>
-                    <option value="8">8 A.M.</option>
-                    <option value="9">9 A.M.</option>
-                    <option value="10">10 A.M.</option>
-                    <option value="11">11 A.M.</option>
-                    <option value="12">12 P.M.</option>
-                    <option value="13">13 P.M.</option>
-                    <option value="14">14 P.M.</option>
-                    <option value="15">15 P.M.</option>
-                    <option value="16">16 P.M.</option>
-                    <option value="17">17 P.M.</option>
-                    <option value="18">18 P.M.</option>
-                    <option value="19">19 P.M.</option>
-                    <option value="20">20 P.M.</option>
-                    <option value="21">21 P.M.</option>
-                    <option value="22">22 P.M.</option>
-                    <option value="23">23 P.M.</option>
-                    <option value="24">24 P.M.</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="CRASH_DAY">Crash Day: </label><br />
-                <select class="form-control" asp-for="CRASH_DAY">
-                    <option selected>Select a Day</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="CRASH_MONTH">Severity: </label><br />
-                <select class="form-control" asp-for="CRASH_MONTH">
-                    <option selected>Select a Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="CRASH_YEAR">Crash Year: </label><br />
-                <input class="form-control" placeholder="Year" asp-for="CRASH_YEAR" />
-            </div>
-
-            <div class="form-group col-md-10">
-                <label class="form-label" asp-for="CRASH_SEVERITY_ID">Severity: </label><br />
-                <select class="form-control" asp-for="CRASH_SEVERITY_ID">
-                    <option selected>Select a Severity</option>
-                    <option value="1">1: No Injury</option>
-                    <option value="2">2: possible injury</option>
-                    <option value="3">3: suspected minor injury</option>
-                    <option value="4">4: suspected serious injury</option>
-                    <option value="5">5: fatal</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="ROUTE">Route: </label>
-                <input class="form-control" placeholder="Route" asp-for="ROUTE" />
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="MILEPOINT">Milepoint: </label>
-                <input class="form-control" placeholder="Milepoint" asp-for="MILEPOINT" />
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="LAT_UTM_Y">Latitude: </label>
-                <input class="form-control" placeholder="Latitude" asp-for="LAT_UTM_Y" />
-            </div>
-
-            <div class="form-group col-md-3">
-                <label class="form-label" asp-for="LONG_UTM_X">Longitude: </label>
-                <input class="form-control" placeholder="Longitude" asp-for="LONG_UTM_X" />
-            </div>
-
-            <div class="form-group col-md-12">
-                <h3>Select all that apply:</h3>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="WORK_ZONE_RELATED" />
-                <label class="form-check-label" asp-for="WORK_ZONE_RELATED">Work Zone Related?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="PEDESTRIAN_INVOLVED" />
-                <label class="form-check-label" asp-for="PEDESTRIAN_INVOLVED">Pedestrian Involved?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="BICYCLIST_INVOLVED" />
-                <label class="form-check-label" asp-for="BICYCLIST_INVOLVED">Bicyclist Involved?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="MOTORCYCLE_INVOLVED" />
-                <label class="form-check-label" asp-for="MOTORCYCLE_INVOLVED">Motorcycle Involved?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="IMPROPER_RESTRAINT" />
-                <label class="form-check-label" asp-for="IMPROPER_RESTRAINT">Improper Restraint?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="UNRESTRAINED" />
-                <label class="form-check-label" asp-for="UNRESTRAINED">Unrestrained?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="DUI" />
-                <label class="form-check-label" asp-for="DUI">DUI?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="INTERSECTION_RELATED" />
-                <label class="form-check-label" asp-for="INTERSECTION_RELATED">Intersection Related?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="WILD_ANIMAL_RELATED" />
-                <label class="form-check-label" asp-for="WILD_ANIMAL_RELATED">Wild Animal Related?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="DOMESTIC_ANIMAL_RELATED" />
-                <label class="form-check-label" asp-for="DOMESTIC_ANIMAL_RELATED">Domestic Animal Related?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="OVERTURN_ROLLOVER" />
-                <label class="form-check-label" asp-for="OVERTURN_ROLLOVER">Overturn/Rollover?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED" />
-                <label class="form-check-label" asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED">Commercial Vehicle?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="TEENAGE_DRIVER_INVOLVED" />
-                <label class="form-check-label" asp-for="TEENAGE_DRIVER_INVOLVED">Teenage Driver?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="OLDER_DRIVER_INVOLVED" />
-                <label class="form-check-label" asp-for="OLDER_DRIVER_INVOLVED">Older Driver?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="NIGHT_DARK_CONDITION" />
-                <label class="form-check-label" asp-for="NIGHT_DARK_CONDITION">At Night?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="SINGLE_VEHICLE" />
-                <label class="form-check-label" asp-for="SINGLE_VEHICLE">Single Vehicle?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="DISTRACTED_DRIVING" />
-                <label class="form-check-label" asp-for="DISTRACTED_DRIVING">Distracted Driving?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="DROWSY_DRIVING" />
-                <label class="form-check-label" asp-for="DROWSY_DRIVING">Drowsy Driver?</label>
-            </div>
-
-            <div style=" text-align: left;" class="form-check form-switch col-md-4">
-                <input class="form-check-input" type="checkbox" asp-for="ROADWAY_DEPARTURE" />
-                <label class="form-check-label" asp-for="ROADWAY_DEPARTURE">Roadway Departure?</label>
-            </div>
-
-            <input type="hidden" asp-for="CRASH_ID" />
-
-            <br />
-            <br />
-
-            <div style=" text-align: center;" class="form-group col-md-12">
-                <button class="btn btn-md btn-primary" type="submit">Submit</button>
-            </div>
-
-        </form>
-    </div>
+</div>
 
 
 
