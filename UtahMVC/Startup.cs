@@ -74,28 +74,60 @@ namespace UtahMVC
 
             app.UseAuthorization();
 
+
+            //endpoints babyyyyyy
             app.UseEndpoints(endpoints =>
             {
 
 
+                // country, severity, page number
+                endpoints.MapControllerRoute(
+                    name: "countySeverityPage",
+                    pattern: "{countyNames}/{severity}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" });
+
+
+                // county plus a page number
                 endpoints.MapControllerRoute(
                     name: "countyPage",
                     pattern: "{countyNames}/Page{pageNum}",
-                    defaults:  new { Controller = "Home", action = "Crashes" });
+                    defaults: new { Controller = "Home", action = "Crashes" });
 
+
+                // only a page is passed through with all filters as defaults
                 endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
+
+                // only a county is passed through, goes to page one of that county 
                 endpoints.MapControllerRoute(
                     name: "county",
                     pattern: "{countyNames}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
+                // severity and page number
+                endpoints.MapControllerRoute(
+                    name: "severity",
+                    pattern: "{severity}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" });
+
+
+                //only a severity value is passed through
+                endpoints.MapControllerRoute(
+                    name: "severity",
+                    pattern: "{severity}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+
+                //default endpoint
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                //ADMIN ENDPOINTS
 
                 endpoints.MapControllerRoute(
                     name: "countyPage",

@@ -41,7 +41,7 @@ namespace UtahMVC.Infrastructure
             TagBuilder final = new TagBuilder("div");
 
             // check to see if the number of pages left is less than 10 
-            if (PageBlah.CurrentPage + 9 > PageBlah.TotalPages)
+            if (PageBlah.CurrentPage + 10 > PageBlah.TotalPages)
             {
                 for (int i = PageBlah.CurrentPage; i <= PageBlah.TotalPages; i++)
                 {
@@ -63,7 +63,7 @@ namespace UtahMVC.Infrastructure
             // add ten pages else statement
             else
             {
-                for (int i = PageBlah.CurrentPage; i <= PageBlah.CurrentPage + 9; i++)
+                for (int i = PageBlah.CurrentPage; i <= PageBlah.CurrentPage + 10; i++)
                 {
                     TagBuilder tb = new TagBuilder("a");
 
