@@ -12,10 +12,12 @@ namespace UtahMVC.Controllers
     public class InferenceController : Controller
     {
         private InferenceSession _session;
+      
 
         public InferenceController(InferenceSession session)
         {
             _session = session;
+            
         }
 
         [HttpGet]
@@ -33,8 +35,10 @@ namespace UtahMVC.Controllers
             });
             Tensor<float> score = result.First().AsTensor<float>();
             var prediction = new Prediction { PredictedValue = score.First() };
+            
             result.Dispose();
-            return View("CalculateScore", prediction);
+            ViewBag.Score = Math.Round(prediction.PredictedValue);
+            return View("Analytics");
         }
     }
 }
