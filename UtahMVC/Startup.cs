@@ -50,7 +50,7 @@ namespace UtahMVC
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
             services.AddSingleton<InferenceSession>(
-               new InferenceSession("intexModel.onnx"));
+               new InferenceSession("wwwroot/intexModel.onnx"));
 
         }
 
