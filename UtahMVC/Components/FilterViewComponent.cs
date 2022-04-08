@@ -17,10 +17,14 @@ namespace UtahMVC.Component
         // function to grab the distinct different categories to display on the home page
         public IViewComponentResult Invoke()
         {
+
+            //grab county names 
             ViewBag.SelectedType = RouteData?.Values["countyNames"];
             var counties = context.UtahCrashData.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x);
-            ViewBag.severity = context.UtahCrashData.Select(x => x.CRASH_SEVERITY_ID).Distinct().OrderBy(x => x);
-            ViewBag.year = context.UtahCrashData.Select(x => x.CRASH_YEAR).Distinct().OrderBy(x => x);
+
+            ////Use in the future for more filtering
+            //ViewBag.severity = context.UtahCrashData.Select(x => x.CRASH_SEVERITY_ID).Distinct().OrderBy(x => x);
+            //ViewBag.year = context.UtahCrashData.Select(x => x.CRASH_YEAR).Distinct().OrderBy(x => x);
 
             return View(counties);
         }

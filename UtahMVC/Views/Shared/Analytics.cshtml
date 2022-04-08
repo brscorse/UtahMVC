@@ -7,6 +7,22 @@
 
 @model MLCrash
 
+<head>
+    <style>
+        label {
+            float: left;
+        }
+
+        span {
+            display: block;
+            padding: 0px 4px 0px 6px;
+        }
+
+        select {
+            width: 70%;
+        }
+    </style>
+</head>
 
 <div class="banner-area banner-4">
     <div class="overlay dark-overlay"></div>
@@ -31,36 +47,169 @@
 
 <!-- PUT CALCULATOR HERE -->
 
-<style>
-    .color-box {
-        background-color: cornflowerblue;
-        width: 100px;
-        height: 50px;
-    }
-</style>
+
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-5 text-center form-group">
             <h1>Future Insight</h1>
+            <br/>
             @if (ViewBag != null) {
                 @ViewBag.Score}
-            <p class="color-box text-center text-align: center">Test </p>
 
-            <form class="form-group" method="post" asp-controller="Inference" asp-action="Score">
+        <form id="rcorners1" class="col-12 shadow-none p-3 mb-5 bg-light rounded" method="post" asp-controller="Inference" asp-action="Score">
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Did Crash occur in Salt Lake City?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="City_Salt_Lake_City">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Did Crash occur in Utah County?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="County_Name_Utah">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was a bicyclist involved?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Bicyclist_Involved">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was a motorcycle involved?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Motorcycle_Involved">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was seat belt properly being used?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Unrestrained_True">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was the driver under the influence?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="DUI_True">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Did the vehicle roll?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Overturn_Rollover_True">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was a commercial vehicle involved?</label>
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Commercial_Vehicle_Involved_True">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <label>Was driver distracted?</label><br />
+                        <div class="form-group">
+                            <span>
+                                <select asp-for="Distracted_Driving">
+                                    <option selected>True or False</option>
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="col">
+                    <div class="form-group offset-md-1" style="text-align:left">
+                        <div class="button form-group">
+                            <span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <button class="button btn-primary btn-lg" style="text-align:center" data-toggle="button" aria-pressed="false" autocomplete="off" type="submit">Calculate</button>
 
-                <div class="form-group" style="width: 750px"><label>City_Salt_Lake_City:</label><select asp-for="City_Salt_Lake_City"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>County_Name_Utah:</label><select asp-for="County_Name_Utah"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Bicyclist_Involved:</label><select asp-for="Bicyclist_Involved"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Motorcycle_Involved:</label><select asp-for="Motorcycle_Involved"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Unrestrained_True:</label><select asp-for="Unrestrained_True"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>DUI_True</label><select asp-for="DUI_True"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Overturn_Rollover_True</label><select asp-for="Overturn_Rollover_True"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Commercial_Vehicle_Involved_True</label><select asp-for="Commercial_Vehicle_Involved_True"><option value="1">True</option><option value="0">False</option></select></div>
-                <div class="form-group" style="width: 750px"><label>Distracted_Driving</label><select asp-for="Distracted_Driving"><option value="1">True</option><option value="0">False</option></select></div>
 
-                <button class="btn-primary btn-lg" type="submit">Calculate</button>
-            </form>
+
+        </form>
 
         </div>
         <div class="col-7 text-center">
