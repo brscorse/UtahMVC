@@ -13,18 +13,11 @@ using UtahMVC.Models.ViewModels;
 
 namespace UtahMVC.Controllers
 {
-    //[Authorize]
-    
+    [Authorize]
+
     public class AdminController : Controller
     {
-        //private AuthDbContext _Context { get; set; }
-
-
-        ////Constructor
-        //public AdminController(AuthDbContext temp)
-        //{
-        //    _Context = temp;
-        //}
+  
 
         private IUtahMVCRepository repo { get; set; }
 
