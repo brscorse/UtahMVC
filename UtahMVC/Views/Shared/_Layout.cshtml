@@ -1,8 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*CSP HEADER*@
+    <meta http-equiv="Content-Security-Policy"
+          content="base-uri 'self';
+               block-all-mixed-content;
+               child src https://udps.numetric.net
+               default-src 'self',
+               img-src data: https:;
+               object-src 'none';
+               script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com;
+                          'sha256-v8v3RKRPmN4odZ1CWM5gw80QKPCCWMcpNeOmimNL2AA='
+                          'unsafe-eval';
+               connect-src 'self' https://*.googleapis.com *.google.com https://*.gstatic.com  data: blob:;
+               font-src https://fonts.gstatic.com;
+               upgrade-insecure-requests;">
+
     <title>@ViewData["Title"] - UtahMVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
