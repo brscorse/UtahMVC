@@ -54,8 +54,9 @@
         <div class="col-5 text-center form-group">
             <h1>Future Insight</h1>
             <br/>
-            @if (ViewBag != null) {
-                @ViewBag.Score}
+            @if (ViewBag.Score != null) {
+        <h2>@ViewBag.Score</h2>
+        }
 
         <form id="rcorners1" class="col-12 shadow-none p-3 mb-5 bg-light rounded" method="post" asp-controller="Inference" asp-action="Score">
             <br/>
@@ -205,7 +206,7 @@
                 </div>
             </div>
             <br/>
-            <button class="button btn-primary btn-lg" style="text-align:center" data-toggle="button" aria-pressed="false" autocomplete="off" type="submit">Calculate</button>
+            <button class="button btn-primary btn-lg" style="text-align:center" type="submit">Calculate</button>
 
 
 

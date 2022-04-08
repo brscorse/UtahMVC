@@ -49,8 +49,8 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            //services.AddSingleton<InferenceSession>(
-            //   new InferenceSession("../UtahMVC/wwwroot/lib/intexModel.onnx"));
+            services.AddSingleton<InferenceSession>(
+               new InferenceSession("wwwroot/intexModel.onnx"));
 
 
         }
@@ -59,16 +59,16 @@ namespace UtahMVC
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 //Added CSP Headers
-            app.Use(async (context, next) =>
-            {
-                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self', bootstrap.css;");
-                await next();
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self', bootstrap.css;");
+            //    await next();
+            //});
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
