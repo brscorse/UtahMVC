@@ -26,6 +26,6 @@
         <li class="list-group-item">County: @Model.COUNTY_NAME</li>
         <li class="list-group-item">Severity: @Model.CRASH_SEVERITY_ID</li>
     </ul>
-    <a class="btn btn-primary" asp-controller="Admin" asp-action="AdminDetails" asp-route-id="@Model.CRASH_ID">Details</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Details" asp-route-id="@Model.CRASH_ID">Details</a>
 </div>
 <br />
