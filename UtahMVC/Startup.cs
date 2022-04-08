@@ -49,8 +49,8 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            services.AddSingleton<InferenceSession>(
-               new InferenceSession("wwwroot/intexModel.onnx"));
+            //services.AddSingleton<InferenceSession>(
+            //   new InferenceSession("wwwroot/intexModel.onnx"));
 
 
         }
@@ -58,12 +58,6 @@ namespace UtahMVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // CSP HEADER
-            //app.Use(async (context, next) =>
-            //{
-            //    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self';");
-            //    await next();
-            //});
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
