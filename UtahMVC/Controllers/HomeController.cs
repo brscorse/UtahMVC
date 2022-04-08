@@ -42,6 +42,8 @@ namespace UtahMVC.Controllers
             return View();
         }
 
+
+        // records page
         public IActionResult Crashes(string countyNames, int pageNum = 1)
         {
             int pageSize = 10;
