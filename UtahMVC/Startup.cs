@@ -49,8 +49,9 @@ namespace UtahMVC
 
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
-            services.AddSingleton<InferenceSession>(
-               new InferenceSession("wwwroot/intexModel.onnx"));
+            //services.AddSingleton<InferenceSession>(
+            //   new InferenceSession("../UtahMVC/wwwroot/lib/intexModel.onnx"));
+
 
         }
 
@@ -84,20 +85,6 @@ namespace UtahMVC
             //endpoints babyyyyyy
             app.UseEndpoints(endpoints =>
             {
-                // country, severity, page number
-                endpoints.MapControllerRoute(
-                    name: "countySeverityPage",
-                    pattern: "{countyNames}/{severity}/Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Crashes" });
-
-
-                // severity and page number
-                endpoints.MapControllerRoute(
-                    name: "severity",
-                    pattern: "{severity}/Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Crashes" });
-
-
                 // county plus a page number
                 endpoints.MapControllerRoute(
                     name: "countyPage",
@@ -110,21 +97,11 @@ namespace UtahMVC
                     pattern: "Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
-
-                //only a severity value is passed through
-                endpoints.MapControllerRoute(
-                    name: "severity",
-                    pattern: "{severity}",
-                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
-
-
                 // only a county is passed through 
                 endpoints.MapControllerRoute(
                     name: "county",
                     pattern: "{countyNames}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
-
-
 
                 //default endpoint
                 endpoints.MapControllerRoute(

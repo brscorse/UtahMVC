@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using UtahMVC.Models.ViewModels;
 
 namespace UtahMVC.Controllers
 {
-    //[Authorize]
     public class HomeController : Controller
     {
 
@@ -42,98 +42,29 @@ namespace UtahMVC.Controllers
             return View();
         }
 
-
-
-
-        public IActionResult Crashes(string countyNames, string severity, string year, int pageNum = 1)
+        public IActionResult Crashes(string countyNames, int pageNum = 1)
         {
-
             int pageSize = 10;
-
-            // if COUNTY is passed in
-            if (severity == null)
+            var x = new CrashesViewModel
             {
-                var x = new CrashesViewModel
+                UtahCrashData = repo.UtahCrashData
+                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+
+                PageInfo = new PageInfo
                 {
-                    UtahCrashData = repo.UtahCrashData
-                    .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
-                    .Skip((pageNum - 1) * pageSize)
-                    .Take(pageSize),
-
-
-                    PageInfo = new PageInfo
-                    {
-                        TotalNumCrashes =
-                            (countyNames == null
-                                ? repo.UtahCrashData.Count()
-                                : repo.UtahCrashData.Where(x => x.COUNTY_NAME == countyNames).Count()),
-                        CrashesPerPage = pageSize,
-                        CurrentPage = pageNum
-                    }
-                };
-                return View(x);
-            }
-
-            // if SEVERITY is passed in
-            if (countyNames == null)
-            {
-                var x = new CrashesViewModel
-                {
-                    UtahCrashData = repo.UtahCrashData
-                    .Where(c => c.CRASH_SEVERITY_ID == severity || severity == null)
-                    .Skip((pageNum - 1) * pageSize)
-                    .Take(pageSize),
-
-
-                    PageInfo = new PageInfo
-                    {
-                        TotalNumCrashes =
-                            (severity == null
-                                ? repo.UtahCrashData.Count()
-                                : repo.UtahCrashData.Where(x => x.CRASH_SEVERITY_ID == severity).Count()),
-                        CrashesPerPage = pageSize,
-                        CurrentPage = pageNum
-                    }
-                };
-                return View(x);
-            }
-
-            // if YEAR is passed in
-
-            // if COUNTY and SEVERITY are passed in
-            if (countyNames != null && severity != null)
-            {
-                var x = new CrashesViewModel
-                {
-                    UtahCrashData = repo.UtahCrashData
-                    .Where(c => c.CRASH_SEVERITY_ID == severity && c.COUNTY_NAME == countyNames)
-                    .Skip((pageNum - 1) * pageSize)
-                    .Take(pageSize),
-
-
-                    PageInfo = new PageInfo
-                    {
-                        TotalNumCrashes =
-                            (severity == null
-                                ? repo.UtahCrashData.Count()
-                                : repo.UtahCrashData.Where(x => x.CRASH_SEVERITY_ID == severity && x.COUNTY_NAME == countyNames).Count()),
-                        CrashesPerPage = pageSize,
-                        CurrentPage = pageNum
-                    }
-                };
-                return View(x);
-            }
-
-            // if COUNTY and YEAR are passed in
-
-            // if YEAR and SEVERITY are passed in
-
-            // if YEAR and SEVERITY and COUNTY are passed in
-
-
-
-            return View();
-            
+                    TotalNumCrashes =
+                        (countyNames == null
+                            ? repo.UtahCrashData.Count()
+                            : repo.UtahCrashData.Where(x => x.COUNTY_NAME == countyNames).Count()),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+            return View(x);
+   
         }
 
         public IActionResult Details(string id)

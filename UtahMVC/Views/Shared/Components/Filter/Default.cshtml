@@ -2,27 +2,15 @@
 <!-- this is for the filter section on the left hand side of the home page-->
 <div class="d-grid p-25">
 
+    <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames=""
+       asp-route-PageNum="1" class="btn btn-outline-secondary">Refresh</a><br />
+
     <b>Filter by County:</b><br />
-    <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames="" asp-route-PageNum="1" class="btn btn-outline-secondary">All</a><br />
+    <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames="" 
+       asp-route-PageNum="1" class="btn btn-outline-secondary">All</a><br />
     @foreach (string c in Model)
     {
         <a asp-controller="Home" asp-action="Crashes" asp-route-countyNames="@c" asp-route-PageNum="1"
            class="btn @(ViewBag.SelectedType == c ? "btn-primary" : "btn-outline-secondary")">@c</a>
-    }
-    <br />
-
-    <br /><b>Filter by Severity:</b><br />
-    <a asp-controller="Home" asp-action="Crashes" asp-route-severity="" asp-route-PageNum="1" class="btn btn-outline-secondary">All</a><br />
-    @foreach (var s in ViewBag.severity)
-    {
-        <a asp-controller="Home" asp-action="Crashes" asp-route-severity="@s" asp-route-PageNum="1"
-           class="btn @(ViewBag.SelectedType == s ? "btn-primary" : "btn-outline-secondary")">@s</a><br />
-    }
-    <br /><b>Filter by Year:</b><br />
-    <a asp-controller="Home" asp-action="Crashes" asp-route-year="" asp-route-PageNum="1" class="btn btn-outline-secondary">All</a><br />
-    @foreach (var y in ViewBag.year)
-    {
-        <a asp-controller="Home" asp-action="Crashes" asp-route-severity="@y" asp-route-PageNum="1"
-           class="btn @(ViewBag.SelectedType == y ? "btn-primary" : "btn-outline-secondary")">@y</a>
     }
 </div>
