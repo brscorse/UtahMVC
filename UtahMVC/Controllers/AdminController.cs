@@ -15,6 +15,7 @@ namespace UtahMVC.Controllers
 {
     [Authorize]
 
+
     public class AdminController : Controller
     {
   
