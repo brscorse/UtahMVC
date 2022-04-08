@@ -36,7 +36,7 @@ namespace UtahMVC.Controllers
             var x = new CrashesViewModel
             {
                 UtahCrashData = repo.UtahCrashData
-                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
+                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null).OrderByDescending(x => x.CRASH_ID)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
