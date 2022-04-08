@@ -37,14 +37,12 @@ namespace UtahMVC.Controllers
         {
 
             int pageSize = 10;
-            ViewBag.counties = countyNames;
 
             // calculate how many rows to show on each page and have page numbers to correspond 
             var x = new CrashesViewModel
             {
-               
                 UtahCrashData = repo.UtahCrashData
-                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null).OrderByDescending(x => x.CRASH_ID)
+                .Where(c => c.COUNTY_NAME == countyNames || countyNames == null)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 

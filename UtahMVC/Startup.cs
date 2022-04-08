@@ -85,6 +85,27 @@ namespace UtahMVC
             //endpoints babyyyyyy
             app.UseEndpoints(endpoints =>
             {
+
+                //ADMIN ENDPOINTS
+
+                // county plus a page number
+                endpoints.MapControllerRoute(
+                    name: "adminCountyPage",
+                    pattern: "Admin/Admin/{countyNames}/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin" });
+
+                // only a page is passed through with all filters as defaults
+                endpoints.MapControllerRoute(
+                    name: "adminPaging",
+                    pattern: "Admin/Admin/Page{pageNum}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
+                // only a county is passed through 
+                endpoints.MapControllerRoute(
+                    name: "adminCounty",
+                    pattern: "Admin/Admin/{countyNames}",
+                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
+
                 // county plus a page number
                 endpoints.MapControllerRoute(
                     name: "countyPage",
@@ -109,22 +130,7 @@ namespace UtahMVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-                //ADMIN ENDPOINTS
 
-                endpoints.MapControllerRoute(
-                    name: "countyPage",
-                    pattern: "Admin/Admin/{countyNames}/Page{pageNum}",
-                    defaults: new { Controller = "Admin", action = "Admin" });
-
-                endpoints.MapControllerRoute(
-                    name: "Paging",
-                    pattern: "Admin/Admin/Page{pageNum}",
-                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
-
-                endpoints.MapControllerRoute(
-                    name: "county",
-                    pattern: "Admin/Admin/{countyNames}",
-                    defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
 
