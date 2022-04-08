@@ -2,12 +2,12 @@
 <!-- this is for the filter section on the left hand side of the home page-->
 <div class="d-grid p-25">
 
-
-    Filter by County:<br />
-    <a asp-controller="Admin" asp-action="Admin" asp-route-countyNames="" asp-route-PageNum="1" class="btn btn-outline-secondary">All Counties</a><br />
-    @foreach (string f in Model)
+    <b>Filter by County:</b><br />
+    <a asp-controller="Admin" asp-action="Admin" asp-route-countyNames=""
+       asp-route-PageNum="1" class="btn btn-outline-secondary">All</a><br />
+    @foreach (string c in Model)
     {
-        <a asp-controller="Admin" asp-action="Admin" asp-route-countyNames="@f" asp-route-PageNum="1"
-           class="btn @(ViewBag.SelectedType == f ? "btn-primary" : "btn-outline-secondary")">@f</a>
+        <a asp-controller="Admin" asp-action="Admin" asp-route-countyNames="@c" asp-route-PageNum="1"
+           class="btn @(ViewBag.SelectedType == c ? "btn-primary" : "btn-outline-secondary")">@c</a>
     }
 </div>
