@@ -42,18 +42,16 @@
 <div class="container-fluid">
     <div class="col-12" style="text-align:center">
         <div class="row">
-            <div class="col-2 button text-right">
-                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="1">First</a>
+            <div class="col-3 button text-right">
+                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="1">First</a>
             </div>
-
-            <div page-blah="@Model.PageInfo" page-action="Admin" page-class="button btn-group"
-                 page-class-normal="btn-outline-dark" page-class-selected="button btn-primary"
+            <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="button btn-group btn-sm btn"
+                 page-class-normal="button btn-group btn-sm btn-outline-dark" page-class-selected="button btn-group btn-sm btn-primary"
                  page-classes-enabled="true"
-                 class="button btn-group btn-lg">
+                 class="btn-group btn-sm">
             </div>
-
-            <div class="col-7 button text-left">
-                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
+            <div class="button text-left">
+                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
             </div>
         </div>
     </div>
