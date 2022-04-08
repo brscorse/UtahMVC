@@ -24,36 +24,40 @@
         </div>
     </div>
 </div>
-    <div class="row m-1 p-4">
-        <div class="col-2">
-            <vc:filter></vc:filter>
-        </div>
-
-        <div class="col-10">
-            <!-- crash table -->
-            @foreach (Crash c in Model.UtahCrashData)
-            {
-                <partial name="CrashSummary" model="c" />
-            }
-        </div>
+<div class="row m-1 p-4">
+    <div class="col-2">
+        <vc:filter></vc:filter>
     </div>
+
+    <div class="col-10">
+        <!-- crash table -->
+        @foreach (Crash c in Model.UtahCrashData)
+        {
+            <partial name="CrashSummary" model="c" />
+        }
+    </div>
+</div>
 
 <!-- PAGINATION AT BOTTOM OF PAGE -->
 <div class="container-fluid">
     <div class="col-12" style="text-align:center">
         <div class="row">
-            <div class="col button">
-                <a type="button" class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="1">First</a>
+            <div class="col-2 button text-right">
+                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="1">First</a>
             </div>
-            <div page-blah="@Model.PageInfo" page-action="Crashes" page-class="btn"
-                 page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+
+            <div page-blah="@Model.PageInfo" page-action="Admin" page-class="button btn-group"
+                 page-class-normal="btn-outline-dark" page-class-selected="button btn-primary"
                  page-classes-enabled="true"
-                 class="col-9 mr-10">
+                 class="button btn-group btn-lg">
             </div>
-            <div class="col button" >
-                <a type="button" class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Crashes" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
+
+            <div class="col-7 button text-left">
+                <a type="button" class="button btn btn-sm btn-primary" asp-controller="Admin" asp-action="Admin" asp-route-PageNum="@Model.PageInfo.TotalPages">Last</a>
             </div>
         </div>
     </div>
+    <br />
 </div>
+
 
