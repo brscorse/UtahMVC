@@ -52,7 +52,7 @@ namespace UtahMVC.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} password must contain {1} characters, which include an upper and lowercase letter, a special character and a digit.", MinimumLength = 8)]
+            [StringLength(100, ErrorMessage = "The {0} password must contain a minimum of 8 characters, which include an upper and lowercase letter, a special character and a digit.", MinimumLength = 8)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
