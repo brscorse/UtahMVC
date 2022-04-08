@@ -50,13 +50,20 @@ namespace UtahMVC
             services.AddScoped<IUtahMVCRepository, EFUtahMVCRepository>();
 
             services.AddSingleton<InferenceSession>(
-               new InferenceSession("intexModel.onnx"));
+               new InferenceSession("wwwroot/intexModel.onnx"));
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+//Added CSP Headers
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy", "default-src 'self', bootstrap.css;");
+                await next();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,12 +84,17 @@ namespace UtahMVC
             //endpoints babyyyyyy
             app.UseEndpoints(endpoints =>
             {
-
-
                 // country, severity, page number
                 endpoints.MapControllerRoute(
                     name: "countySeverityPage",
                     pattern: "{countyNames}/{severity}/Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Crashes" });
+
+
+                // severity and page number
+                endpoints.MapControllerRoute(
+                    name: "severity",
+                    pattern: "{severity}/Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes" });
 
 
@@ -92,7 +104,6 @@ namespace UtahMVC
                     pattern: "{countyNames}/Page{pageNum}",
                     defaults: new { Controller = "Home", action = "Crashes" });
 
-
                 // only a page is passed through with all filters as defaults
                 endpoints.MapControllerRoute(
                     name: "Paging",
@@ -100,24 +111,19 @@ namespace UtahMVC
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
 
 
-                // only a county is passed through, goes to page one of that county 
-                endpoints.MapControllerRoute(
-                    name: "county",
-                    pattern: "{countyNames}",
-                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
-
-                // severity and page number
-                endpoints.MapControllerRoute(
-                    name: "severity",
-                    pattern: "{severity}/Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Crashes" });
-
-
                 //only a severity value is passed through
                 endpoints.MapControllerRoute(
                     name: "severity",
                     pattern: "{severity}",
                     defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
+
+                // only a county is passed through 
+                endpoints.MapControllerRoute(
+                    name: "county",
+                    pattern: "{countyNames}",
+                    defaults: new { Controller = "Home", action = "Crashes", pageNum = 1 });
+
 
 
                 //default endpoint
@@ -144,6 +150,8 @@ namespace UtahMVC
                     defaults: new { Controller = "Admin", action = "Admin", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
+
+                //Connects to razor pages
                 endpoints.MapRazorPages();
             });
 

@@ -20,6 +20,7 @@ namespace UtahMVC.Component
             ViewBag.SelectedType = RouteData?.Values["countyNames"];
             var counties = context.UtahCrashData.Select(x => x.COUNTY_NAME).Distinct().OrderBy(x => x);
             ViewBag.severity = context.UtahCrashData.Select(x => x.CRASH_SEVERITY_ID).Distinct().OrderBy(x => x);
+            ViewBag.year = context.UtahCrashData.Select(x => x.CRASH_YEAR).Distinct().OrderBy(x => x);
 
             return View(counties);
         }
