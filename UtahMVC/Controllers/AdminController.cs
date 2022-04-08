@@ -109,7 +109,7 @@ namespace UtahMVC.Controllers
             return RedirectToAction("Admin");
         }
 
-        // add crash 
+        // add record get 
         [HttpGet]
         public IActionResult AdminAdd()
         {
@@ -118,6 +118,8 @@ namespace UtahMVC.Controllers
             return View("AdminAdd", new Crash());
         }
 
+
+        // add record psot
         [HttpPost]
         public IActionResult AdminAdd(Crash crash)
         {
