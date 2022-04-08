@@ -2,10 +2,16 @@
 @model LoginModel
 
 @{
+    Layout = "";
     ViewData["Title"] = "Log in";
 }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
 <br /> <br />
-<div>
+<div class="container-fluid">
     <div class="col-md-6">
         <section>
             <form id="account" method="post" class="justify-content-center">
@@ -35,9 +41,6 @@
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
                     </p>
 
@@ -48,6 +51,7 @@
             </form>
         </section>
     </div>
+</div>
 
 
 @section Scripts {
